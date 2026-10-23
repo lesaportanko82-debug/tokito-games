@@ -1,0 +1,1037 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Игры TOKITO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&family=Noto+Serif:wght@500;600&family=Noto+Serif+JP:wght@600;700&display=swap" rel="stylesheet">
+<style>:root{--page:#E9E3DA;--side:#2E2A26;--sidemut:#6E655C}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--page:#171513;--side:#EDE6DC;--sidemut:#A79C90}}
+:root[data-theme="dark"]{--page:#171513;--side:#EDE6DC;--sidemut:#A79C90}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html,body{background:var(--page)}
+body{font-family:Manrope,system-ui,sans-serif;color:var(--side);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;gap:44px;padding:28px 16px}
+button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+a{color:inherit}
+.side{max-width:330px;padding-top:30px}
+.side .k{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--sidemut);font-weight:700}
+.side h1{font-family:"Noto Serif",Georgia,serif;font-size:28px;line-height:1.15;font-weight:600;margin-top:8px}
+.side p{color:var(--sidemut);font-size:14px;line-height:1.5;margin-top:10px}
+.side ol{margin:14px 0 0 18px;font-size:13.5px;line-height:1.5;display:flex;flex-direction:column;gap:6px}
+@media (max-width:860px){.side{display:none}body{padding:0}}
+
+/* ===== phone ===== */
+.phone{--bg:#F6F2EC;--card:#FFFFFF;--ink:#2E2A26;--mut:#7A7067;--line:#E7DFD4;--acc:#7A1F2B;--acc2:#B08A4A;--ok:#4F7A5A;--rad:16px;
+ --CR:radial-gradient(circle at 35% 30%,#ffffff,#c9d0d6 45%,#8a95a0);--SS:radial-gradient(circle at 35% 30%,#f4efe7,#cbbfae 50%,#8f8373);
+ --GM:radial-gradient(circle at 35% 30%,#9aa0a8,#4a5058 50%,#1c1f23);--BG:radial-gradient(circle at 35% 30%,#fff1c8,#d9b56f 50%,#9a773e);
+ width:390px;height:800px;border-radius:46px;background:var(--bg);color:var(--ink);position:relative;overflow:hidden;flex:none;
+ box-shadow:0 0 0 10px #22201e,0 0 0 11px #3b3632,0 40px 80px rgba(0,0,0,.35);font-size:15px}
+@media (max-width:860px){.phone{width:100vw;height:100dvh;border-radius:0;box-shadow:none}}
+.app{position:absolute;inset:0;display:flex;flex-direction:column}
+.scr{flex:1;overflow-y:auto;overflow-x:hidden;padding:20px 18px 24px;display:flex;flex-direction:column;gap:14px;animation:in .35s ease;scrollbar-width:none}
+.scr::-webkit-scrollbar{display:none}
+@keyframes in{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.serif{font-family:"Noto Serif",Georgia,serif}
+.h1{font-family:"Noto Serif",Georgia,serif;font-size:27px;line-height:1.15;font-weight:600;letter-spacing:-.01em}
+.h2{font-family:"Noto Serif",Georgia,serif;font-size:20px;line-height:1.2;font-weight:600}
+.sub{color:var(--mut);font-size:.92em;line-height:1.5}
+.note{color:var(--mut);font-size:.76em;line-height:1.45}
+.k{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--mut)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:52px;border-radius:14px;background:var(--ink);color:#F6F2EC;font-weight:700;font-size:15px;transition:transform .1s,opacity .2s}
+.btn:active{transform:scale(.98)}
+.btn.acc{background:var(--acc)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid #D9CFC2}
+.btn.sm{min-height:40px;font-size:13px;border-radius:12px;width:auto;padding:0 14px}
+.btn[disabled]{opacity:.4}
+.row{display:flex;gap:10px}
+.row>*{flex:1}
+.card{background:var(--card);border-radius:var(--rad);box-shadow:0 1px 0 rgba(0,0,0,.03),0 8px 24px rgba(46,42,38,.06)}
+.top{display:flex;align-items:center;gap:10px;padding:14px 16px 6px;flex:none}
+.top .back{width:38px;height:38px;border-radius:50%;background:var(--card);display:flex;align-items:center;justify-content:center;font-size:17px;box-shadow:0 4px 12px rgba(46,42,38,.08)}
+.top .t{flex:1;min-width:0}
+.top .t b{display:block;font-family:"Noto Serif",Georgia,serif;font-size:17px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .t span{font-size:11.5px;color:var(--mut)}
+.top .stat{font-weight:800;font-variant-numeric:tabular-nums;font-size:14px;background:var(--card);border-radius:999px;padding:7px 12px;box-shadow:0 4px 12px rgba(46,42,38,.06);white-space:nowrap}
+.hanko{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border:2px solid var(--acc);color:var(--acc);border-radius:8px;font-family:"Noto Serif JP","Noto Serif",serif;font-weight:700;font-size:18px;transform:rotate(-6deg);flex:none}
+.toast{position:absolute;left:50%;bottom:28px;transform:translateX(-50%);background:var(--ink);color:#F6F2EC;padding:10px 16px;border-radius:12px;font-size:13px;font-weight:600;z-index:50;animation:in .25s ease;max-width:86%;text-align:center}
+
+/* hub */
+.hero{position:relative;border-radius:22px;overflow:hidden;min-height:250px;display:flex;align-items:flex-end;flex:none}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(20,16,14,.78))}
+.hero .tx{position:relative;z-index:1;padding:18px;color:#F6F2EC}
+.hero .tx .k{color:#E9D9B8}
+.hero .tx .h1{color:#fff;margin-top:6px}
+.hero .tx p{font-size:13.5px;line-height:1.45;margin-top:6px;opacity:.92}
+.sec{display:flex;align-items:baseline;justify-content:space-between;margin-top:6px}
+.quizcard{display:flex;gap:0;overflow:hidden;text-align:left;width:100%;padding:0}
+.quizcard img{width:120px;object-fit:cover;flex:none}
+.quizcard .tx{padding:14px;display:flex;flex-direction:column;gap:6px}
+.quizcard b{font-family:"Noto Serif",Georgia,serif;font-size:18px;font-weight:600;line-height:1.2}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;padding:4px 9px;border-radius:999px;background:#F1EBE2;color:var(--mut);align-self:flex-start}
+.chip.acc{background:#F3E3E5;color:var(--acc)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.gcard{position:relative;text-align:left;padding:14px;display:flex;flex-direction:column;gap:8px;min-height:168px;transition:transform .15s}
+.gcard:active{transform:scale(.97)}
+.gcard .ic{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:#F3EEE6}
+.gcard .ic svg{width:30px;height:30px}
+.gcard b{font-family:"Noto Serif",Georgia,serif;font-size:16px;font-weight:600;line-height:1.2}
+.gcard span.d{font-size:12px;color:var(--mut);line-height:1.4}
+.gcard .best{position:absolute;right:12px;top:12px;font-size:11px;font-weight:800;color:var(--acc2)}
+.wide{grid-column:1/-1}
+.thanks{display:flex;gap:12px;align-items:center;padding:14px}
+.thanks img{width:54px;height:54px;border-radius:50%;object-fit:cover;flex:none}
+
+/* quiz */
+.qprog{display:flex;gap:4px}
+.qprog i{flex:1;height:4px;border-radius:4px;background:#E2D9CD}
+.qprog i.on{background:var(--acc)}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.opts.c1{grid-template-columns:1fr}
+.opt{background:var(--card);border-radius:16px;overflow:hidden;text-align:left;box-shadow:0 6px 18px rgba(46,42,38,.06);border:2px solid transparent;transition:transform .12s,border-color .15s;display:flex;flex-direction:column}
+.opt:active{transform:scale(.97)}
+.opt[aria-pressed=true]{border-color:var(--acc)}
+.opt img{width:100%;aspect-ratio:4/3.4;object-fit:cover;display:block}
+.opt .art{height:96px;display:flex;align-items:center;justify-content:center;background:#F3EEE6}
+.opt .art svg{width:56px;height:56px}
+.opt .orb{width:62px;height:62px;border-radius:50%;box-shadow:inset -5px -6px 10px rgba(0,0,0,.25),0 6px 12px rgba(0,0,0,.15)}
+.opt b{display:block;padding:10px 12px 2px;font-size:14px}
+.opt span{display:block;padding:0 12px 12px;font-size:12px;color:var(--mut);line-height:1.35}
+.result{border-radius:22px;overflow:hidden;position:relative;aspect-ratio:4/4.6;flex:none}
+.result img{width:100%;height:100%;object-fit:cover}
+.result .lb{position:absolute;left:14px;right:14px;bottom:14px;background:rgba(246,242,236,.86);backdrop-filter:blur(10px);border-radius:14px;padding:12px 14px;display:flex;gap:12px;align-items:center}
+.result .lb .hanko{background:#F6F2EC}
+.prod{display:flex;gap:12px;align-items:center;padding:12px 14px}
+.prod .orb{width:36px;height:36px;border-radius:50%;flex:none;box-shadow:inset -3px -4px 6px rgba(0,0,0,.25)}
+.prod .nm{font-weight:700;font-size:13.5px;line-height:1.3}
+.prod .sm{font-size:11.5px;color:var(--mut);margin-top:2px}
+.prod a{margin-left:auto;flex:none;background:#CB11AB;color:#fff;font-size:12px;font-weight:800;padding:8px 11px;border-radius:10px;text-decoration:none}
+
+/* finish screen */
+.fin{display:flex;flex-direction:column;gap:14px}
+.fin .big{font-family:"Noto Serif",Georgia,serif;font-size:44px;font-weight:600;line-height:1;color:var(--acc)}
+.fin .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.fin .stats div{background:var(--card);border-radius:14px;padding:10px;text-align:center}
+.fin .stats b{display:block;font-size:18px;font-variant-numeric:tabular-nums}
+.fin .stats span{font-size:11px;color:var(--mut)}
+.upsell{padding:6px 14px}
+.upsell a{display:flex;align-items:center;gap:12px;padding:11px 0;border-bottom:1px solid #EFE8DE;text-decoration:none}
+.upsell a:last-child{border-bottom:0}
+.upsell .ic{width:38px;height:38px;border-radius:10px;background:#F3EEE6;display:flex;align-items:center;justify-content:center;flex:none}
+.upsell .ic svg{width:22px;height:22px}
+.upsell b{font-size:13.5px}
+.upsell span{display:block;font-size:11.5px;color:var(--mut)}
+.upsell em{margin-left:auto;font-style:normal;font-size:12px;font-weight:800;color:#CB11AB}
+.bonus{display:flex;gap:12px;align-items:center;padding:14px;background:#2E2A26;color:#F6F2EC}
+.bonus .hanko{border-color:#E9D9B8;color:#E9D9B8}
+.bonus b{display:block;font-size:14px}
+.bonus span{font-size:12px;opacity:.75}
+
+/* game stage */
+.stage{position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:4px 14px 14px;gap:10px;min-height:0}
+canvas.gc{display:block;border-radius:18px;background:#fff;box-shadow:0 8px 24px rgba(46,42,38,.08);touch-action:none;max-width:100%}
+.hint{font-size:12.5px;color:var(--mut);text-align:center;line-height:1.4;min-height:18px}
+.pad{display:grid;grid-template-columns:repeat(3,58px);grid-template-rows:repeat(2,50px);gap:6px;justify-content:center}
+.pad button{background:var(--card);border-radius:12px;font-size:20px;box-shadow:0 4px 12px rgba(46,42,38,.08)}
+.pad .u{grid-column:2}.pad .l{grid-column:1;grid-row:2}.pad .d{grid-column:2;grid-row:2}.pad .r{grid-column:3;grid-row:2}
+.overlay{position:absolute;inset:0;background:rgba(246,242,236,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:30px;text-align:center;z-index:5;backdrop-filter:blur(4px)}
+
+/* mines */
+.mgrid{display:grid;gap:3px;width:100%;max-width:350px}
+.mcell{aspect-ratio:1;border-radius:6px;background:linear-gradient(160deg,#fff,#EDE6DC);box-shadow:inset 0 -2px 0 rgba(0,0,0,.06);font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.mcell.open{background:#F1EBE2;box-shadow:none}
+.mcell.leak{background:#CFE6F5}
+.mcell.flag{background:#E9D9B8}
+.n1{color:#4F7A5A}.n2{color:#2F6FA0}.n3{color:#7A1F2B}.n4{color:#5B3BAF}.n5{color:#9A5A00}
+.seg{display:flex;background:var(--card);border-radius:12px;padding:3px;gap:3px;box-shadow:0 4px 12px rgba(46,42,38,.06)}
+.seg button{padding:8px 14px;border-radius:10px;font-weight:700;font-size:13px;color:var(--mut)}
+.seg button[aria-pressed=true]{background:var(--ink);color:#F6F2EC}
+
+/* match3 */
+.m3wrap{position:relative;width:100%;max-width:350px}
+.m3{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;background:#EDE6DC;padding:6px;border-radius:16px;position:relative}
+.m3 button{aspect-ratio:1;border-radius:10px;background:#fff;display:flex;align-items:center;justify-content:center;transition:transform .18s,opacity .18s;box-shadow:inset 0 -2px 0 rgba(0,0,0,.05)}
+.m3 button svg{width:72%;height:72%}
+.m3 button.sel{transform:scale(.88);box-shadow:0 0 0 3px var(--acc)}
+.m3 button.pop{transform:scale(0);opacity:0}
+.m3 button.drop{animation:dropin .25s ease}
+@keyframes dropin{from{transform:translateY(-40%);opacity:.2}}
+.goals{display:flex;gap:8px;justify-content:center}
+.goal{display:flex;align-items:center;gap:6px;background:var(--card);border-radius:12px;padding:6px 10px;font-weight:800;font-size:13px;font-variant-numeric:tabular-nums}
+.goal svg{width:22px;height:22px}
+.goal.done{background:#E3EEE5;color:var(--ok)}
+.room{position:relative;width:100%;max-width:350px;aspect-ratio:16/8;border-radius:16px;overflow:hidden;flex:none}
+.room img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.room .q{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.room .q i{transition:opacity .8s;background:transparent}
+.room .after{transition:clip-path 1s ease}
+.room .kenji-nod{inset:auto;position:absolute;right:8px;bottom:8px;width:46px;height:46px;border-radius:50%;border:2px solid #fff;object-fit:cover;z-index:2}
+.room .kenji-nod.nod{animation:nod .6s ease}
+@keyframes nod{30%{transform:rotate(8deg) translateY(2px)}60%{transform:rotate(-2deg)}}
+
+/* cards: solitaire & uno */
+.sol{position:relative;width:100%;max-width:362px;flex:1;user-select:none}
+.pcard{position:absolute;width:47px;height:68px;border-radius:7px;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.18);border:1px solid #E2D9CD;font-weight:800;font-size:13px;padding:3px 4px;transition:top .18s,left .18s,box-shadow .15s}
+.pcard .r{line-height:1}
+.pcard .o{position:absolute;right:4px;bottom:4px;width:18px;height:18px;border-radius:50%;box-shadow:inset -2px -2px 3px rgba(0,0,0,.25)}
+.pcard .o2{position:absolute;left:4px;top:19px;width:10px;height:10px;border-radius:50%}
+.pcard.back{background:repeating-linear-gradient(45deg,#7A1F2B 0 4px,#8C2A37 4px 8px);border-color:#5E1620}
+.pcard.back *{display:none}
+.pcard.sel{box-shadow:0 0 0 3px var(--acc2),0 6px 14px rgba(0,0,0,.25)}
+.slot{position:absolute;width:47px;height:68px;border-radius:7px;border:1.5px dashed #CDBFAE;display:flex;align-items:center;justify-content:center;color:#CDBFAE;font-size:11px;font-weight:700}
+.unotable{display:flex;flex-direction:column;gap:10px;width:100%;flex:1;min-height:0}
+.opp{display:flex;justify-content:space-between;gap:8px}
+.opp div{flex:1;background:var(--card);border-radius:14px;padding:8px 10px;font-size:12px;display:flex;align-items:center;gap:8px}
+.opp div.turn{box-shadow:0 0 0 2px var(--acc)}
+.opp .cnt{margin-left:auto;font-weight:800;font-size:15px}
+.center{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px 0}
+.ucard{width:62px;height:92px;border-radius:10px;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:800;font-size:22px;box-shadow:0 4px 10px rgba(0,0,0,.18);border:3px solid #fff;flex:none;position:relative;text-align:center;line-height:1.05;transition:transform .15s}
+.ucard small{font-size:8.5px;font-weight:800;letter-spacing:.02em;margin-top:4px;padding:0 3px}
+.ucard.back{background:repeating-linear-gradient(45deg,#2E2A26 0 5px,#3B3632 5px 10px)}
+.ucard.play{transform:translateY(-10px)}
+.ucard[disabled]{opacity:.45}
+.hand{display:flex;gap:6px;overflow-x:auto;padding:14px 4px 6px;scrollbar-width:none}
+.hand::-webkit-scrollbar{display:none}
+.colors{display:flex;gap:10px;justify-content:center}
+.colors button{width:54px;height:54px;border-radius:14px;border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.15)}
+
+/* puzzle */
+.mix{width:240px;height:260px;flex:none}
+.mix .part{opacity:.12;transition:opacity .4s,transform .4s}
+.mix .part.on{opacity:1}
+.tray{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;width:100%;max-width:350px}
+.tray button{background:var(--card);border-radius:14px;padding:8px 4px;font-size:11.5px;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:4px;box-shadow:0 4px 12px rgba(46,42,38,.07);transition:transform .15s,opacity .3s}
+.tray button svg{width:34px;height:34px}
+.tray button.used{opacity:.25;pointer-events:none}
+.tray button.no{animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+.explain{background:var(--card);border-radius:14px;padding:12px 14px;font-size:13px;line-height:1.45;width:100%;max-width:350px;min-height:64px}
+
+/* memory */
+.mem{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:100%;max-width:350px}
+.mc{aspect-ratio:3/4;perspective:600px;background:none}
+.mc .in{position:absolute;inset:0;transition:transform .4s;transform-style:preserve-3d}
+.mc.f .in{transform:rotateY(180deg)}
+.mc .fa,.mc .ba{position:absolute;inset:0;border-radius:12px;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:6px}
+.mc .ba{background:repeating-linear-gradient(45deg,#7A1F2B 0 5px,#8C2A37 5px 10px);border:3px solid #fff;box-shadow:0 4px 10px rgba(0,0,0,.12)}
+.mc .ba:after{content:"時";color:#E9D9B8;font-family:"Noto Serif JP",serif;font-size:22px}
+.mc .fa{background:#fff;transform:rotateY(180deg);box-shadow:0 4px 10px rgba(0,0,0,.08);font-size:10.5px;font-weight:800;text-align:center;line-height:1.2}
+.mc .fa .orb{width:34px;height:34px;border-radius:50%;box-shadow:inset -3px -4px 6px rgba(0,0,0,.25)}
+.mc.ok .fa{box-shadow:0 0 0 2px var(--ok)}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;transition-duration:.01ms!important}}
+
+.scr>*{flex-shrink:0}
+.models{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.model{display:flex;flex-direction:column;gap:4px;background:#fff;border-radius:16px;padding:10px;text-decoration:none;color:var(--ink);box-shadow:0 2px 10px rgba(46,42,38,.06)}
+.model img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff}
+.model b{font-size:12.5px;line-height:1.25}.model span{font-size:11px;color:var(--mut)}
+.mc .fa img{width:100%;flex:1;min-height:0;object-fit:contain}
+.mc .fa{background:#fff}
+.prod .pimg{width:44px;height:44px;border-radius:10px;object-fit:contain;background:#fff;flex:none}
+.choice{display:flex;flex-direction:column;gap:6px;text-align:left;width:100%}
+.choice .tx{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.choice b{font-family:"Noto Serif",serif;font-size:19px}
+.inp{width:100%;height:48px;border-radius:14px;border:1px solid #E3DCD2;background:#fff;padding:0 14px;font:600 15px Manrope,sans-serif;color:var(--ink)}
+.inp:focus{outline:2px solid var(--acc);outline-offset:1px}
+.hand{flex-wrap:wrap;justify-content:center;overflow:visible}
+.opp .onm{font-weight:700}
+.btn[disabled]{opacity:.5}
+.hero img{object-position:50% 8%}
+.finphoto{border-radius:20px;overflow:hidden;aspect-ratio:4/3}.finphoto img{width:100%;height:100%;object-fit:cover;object-position:50% 25%;display:block}
+</style>
+</head>
+<body>
+<aside class="side">
+ <div class="k">TOKITO · игры для клиентов</div>
+ <h1>Одно приложение, девять игр</h1>
+ <p>По документу Елены Пахмутовой «Tokito · Игры для клиентов». На главном экране человек сам выбирает, во что сыграть.</p>
+ <ol>
+  <li>Квиз «Ваша комната по-японски» для новых гостей</li>
+  <li>«Гибкий шланг», змейка</li>
+  <li>«Протечка», сапёр</li>
+  <li>«Собери смеситель», пазл</li>
+  <li>«Найди пару», мемори</li>
+  <li>«Путь Кэндзи», платформер</li>
+  <li>«Дом Кэндзи», три в ряд</li>
+  <li>«Плиточный пасьянс», косынка</li>
+  <li>«Колода Tokito» по мотивам уно</li>
+ </ol>
+ <p>По QR-коду из коробки (ссылка с ?from=qr) первыми показываются игры для покупателей.</p>
+</aside>
+<div class="phone" id="phone"><div class="app" id="app"></div></div>
+<script>const PRICE_DATE="14.10.2026";
+const FIN={CR:{n:"хром",a:"#fbfcfd",b:"#8a95a0"},GM:{n:"вороненая сталь",a:"#666c76",b:"#1c1f23"},BL:{n:"чёрный",a:"#48484c",b:"#0d0d0e"},
+  BG:{n:"брашированное золото",a:"#efd7a2",b:"#9a773e"},SS:{n:"нержавеющая сталь",a:"#eceef0",b:"#959ba1"},WH:{n:"белый",a:"#ffffff",b:"#d3d8dc"},
+  GL:{n:"стекло и хром",a:"#f1f8fa",b:"#a5bcc5"},NO:{n:"без рамы",a:"#eef4f6",b:"#a9b6be"}};
+const P=(sku,name,fin,price,wb,oz,ym,spec,x={})=>({sku,name,fin,price,wb,oz,ym,spec,...x});
+const ITEMS=Object.fromEntries([
+ P("TOK-TATSUMAKI-4-0SQ","Подвесной унитаз TATSUMAKI SQUARE, Торнадо 4.0","WH",19138,"428988488","2156772114","4486489943","безободковый, сиденье в комплекте",{shape:"square"}),
+ P("TOK-TATSUMAKI-4-0TY","Подвесной унитаз TATSUMAKI YOKO, Торнадо 4.0","WH",16268,"428988489","2156975742","4487082505","безободковый, сиденье в комплекте",{shape:"round"}),
+ P("TOK-TATSUMAKI-SUMO","Подвесной унитаз SUMO с микролифтом","WH",19894,"1160995650","4841553661",null,"безободковый, крышка опускается плавно",{shape:"oval",soft:true}),
+ P("TOK-TATSUMAKI-43","Инсталляция TATSUMAKI COMPACT 43 см","NO",19810,"232566146","1574961515","102496665630","рама 43 см, для подвесных унитазов",{w:43}),
+ P("TOK-TATSUMAKI-50","Инсталляция TATSUMAKI MAX 50 см","NO",19810,"232566145","1574933357","103791508710","рама 50 см, для подвесных унитазов",{w:50}),
+ P("TOK-TATSUMAKI-SQ-CH","Кнопка смыва TATSUMAKI SQUARE","CR",2574,"232749595","1575010333","102704696290","для инсталляций TATSUMAKI",{shape:"square"}),
+ P("TOK-TATSUMAKI-SQ-GM","Кнопка смыва TATSUMAKI SQUARE","GM",4338,"232760965","1575112221","102704690608","для инсталляций TATSUMAKI",{shape:"square"}),
+ P("TOK-TATSUMAKI-RD-BL","Кнопка смыва TATSUMAKI ROUND","BL",2142,"232760963","1575103908","102496659591","для инсталляций TATSUMAKI",{shape:"round"}),
+ P("TOK-TATSUMAKI-SQ-GB","Кнопка смыва TATSUMAKI SQUARE","BG",4338,"232760966","1575113632","103059225507","для инсталляций TATSUMAKI",{shape:"square"}),
+ P("BR020","Ершик настенный с керамической колбой","CR",1266,"11848930","727040996","100900962584","настенный, хром, керамика",{wall:true}),
+ P("ST020","Ершик настенный со стеклянной колбой","GL",1637,"11848958","727042056","5686510459","настенный, стекло, хром",{wall:true}),
+ P("1095","Ершик напольный металлический","CR",845,"11004561","727042129","5959032508","напольный, металл"),
+ P("TOK-RAI-1031CR","Душевая стойка RAIN с термостатом","CR",31968,"1160854746","4681535496","5859430878","термостат, тропический душ 30×20, штанга 950–1350 мм",{thermo:true}),
+ P("TOK-RAI-1031GM","Душевая стойка RAIN с термостатом","GM",34475,"1160854747","4681771401","5859352995","термостат, тропический душ 30×20, штанга 950–1350 мм",{thermo:true}),
+ P("TOK-AIR-1030BG","Душевая система AIR 3 в 1","BG",26993,"881800489","4894765497",null,"тропический душ, лейка, смеситель"),
+ P("TOK-RAI-1015BL","Душевая система RAIN без смесителя","BL",13715,"163546921","1008222206","102085221562","тропический душ и лейка, смеситель отдельно",{nomixer:true}),
+ P("SET-NAB-60","Тумба подвесная 60 см + раковина NABEGATAKI","WH",28015,"548026054","2905121789","5686640477","два товара: TOK-NAB-TP60 и TOK-NAB-60",{w:60,parts:[["TOK-NAB-TP60",21293,"548026054","2905121789","5686640477"],["TOK-NAB-60",6722,"543906031","2904755972","5686589527"]]}),
+ P("SET-NAB-80","Тумба напольная 80 см + раковина NABEGATAKI","WH",31584,"548026047","2905121494","4705720975","два товара: TOK-NAB-TN80 и TOK-NAB-80",{w:80,floor:true,parts:[["TOK-NAB-TN80",24474,"548026047","2905121494","4705720975"],["TOK-NAB-80",7110,"543906032","2904754479","5686551007"]]}),
+ P("TOK-KAT-1011CR","Смеситель для раковины KATANA","CR",7997,"1025866758","3973357367","5686330533","латунь, аэратор Neoperl Slim Air",{flag:"В реестре в названии карточки «вороненая сталь». Проверить."}),
+ P("TOK-KAT-1011GM","Смеситель для раковины KATANA","GM",8990,"1028505126","3973677177","5686488691","латунь, аэратор Neoperl Slim Air"),
+ P("TOK-AOM-1011BG","Смеситель для умывальника AOMORI","BG",6579,"1160252808","4316003592",null,"нержавеющая сталь AISI 304"),
+ P("TOK-AMA-1011BL","Смеситель для раковины AMA","BL",6549,"246651352","1620398287","103689326231","латунь"),
+ P("TOK-INA-6070","Зеркало INAWASHIRO с подсветкой 60×70","NO",6621,"521589857","2806528042","5686607561","сенсор, антизапотевание",{w:60,h:70}),
+ P("TOK-INA-8070","Зеркало INAWASHIRO с подсветкой 80×70","NO",7845,"521589858","2806527565","5686608546","сенсор, антизапотевание",{w:80,h:70}),
+ P("TOK-INA-8060BG","Зеркало INAWASHIRO 80×60, рама золото","BG",8490,"1627521163","5837038783",null,"сенсор, антизапотевание",{w:80,h:60}),
+ P("BR036","Мыльница настенная, керамика","WH",1326,"11853561","727904024","4813233744","настенная, керамика"),
+ P("K036","Мыльница настенная, стекло","GL",1142,"11853585","727903438","5894695086","настенная, стекло"),
+ P("N040","Мыльница настенная металлическая","CR",517,"11848954","727904011","100901244004","настенная, металл"),
+ P("TOK-KAT-1013CR","Смеситель для кухни KATANA с гибким изливом","CR",14972,"1854005507",null,null,"магнитный держатель, подключение к фильтру",{filter:true}),
+ P("TOK-KAT-1013GM","Смеситель для кухни KATANA с гибким изливом","GM",16917,"1854005508",null,null,"магнитный держатель, подключение к фильтру",{filter:true}),
+ P("TOK-AIS-1023SS","Смеситель для кухни AISAI с вытяжным изливом","SS",7251,"448025680","2344527950","4776158287","вытяжной излив, подключение к фильтру",{filter:true}),
+ P("TOK-AIS-1023GM","Смеситель для кухни AISAI с вытяжным изливом","GM",8246,"448025679","2345117439","4778138108","вытяжной излив, подключение к фильтру",{filter:true}),
+ P("TOK-AMA-1013BL","Смеситель для кухни AMA с поворотным изливом","BL",6291,"246685116","1620418826","102706705813","латунь, поворотный излив"),
+ P("TOK-OKA-6050-ST","Мойка OKA 60×50, нержавеющая сталь","SS",12210,"453287787","2436143167","4678155636","толщина стенок 3 мм, анти-шум"),
+ P("TOK-OKA-6050-GF","Мойка OKA 60×50, вороненая сталь","GM",13230,"453287788","2436253131","4679027075","толщина стенок 3 мм, анти-шум")
+].map(i=>[i.sku,i]));
+
+
+/* ===== настройки: заменить на реальные ссылки ===== */
+const CONFIG={
+ BOT_URL:"",        // ссылка на чат-бота TOKITO в Telegram, например https://t.me/имя_бота
+ TG_URL:"",         // ссылка на Telegram-канал TOKITO (инструкции)
+ BONUS:"Бонус за игру: условия уточняются"
+};
+const WB_SEARCH=q=>"https://www.wildberries.ru/catalog/0/search.aspx?search="+encodeURIComponent("TOKITO "+q);
+const WB_ITEM=id=>`https://www.wildberries.ru/catalog/${id}/detail.aspx`;
+
+/* ===== иконки (линейные, в тон бренда) ===== */
+const IC={
+ faucet:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M14 40h20M24 40V24M24 24c0-8 6-12 12-12h2v6"/><path d="M18 24h12"/><circle cx="38" cy="21" r="1.5" fill="currentColor"/></svg>',
+ shower:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M12 44V12a6 6 0 0 1 12 0v2"/><path d="M16 14h16a0 0 0 0 1 0 0 8 8 0 0 1-16 0z"/><path d="M19 28v3M24 28v5M29 28v3"/></svg>',
+ tile:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="8" y="8" width="32" height="32" rx="4"/><path d="M8 24h32M24 8v32"/></svg>',
+ cart:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><rect x="15" y="12" width="18" height="26" rx="4"/><path d="M24 4v8M19 20h10M19 26h10M20 38v4M28 38v4"/></svg>',
+ aerator:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><circle cx="24" cy="24" r="14"/><circle cx="24" cy="24" r="7"/><path d="M24 10v28M10 24h28" stroke-width="2"/></svg>',
+ gasket:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="5"><circle cx="24" cy="24" r="12"/></svg>',
+ toilet:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 22h28v2a14 14 0 0 1-14 14h0a14 14 0 0 1-14-14z"/><path d="M18 38l-2 6h16l-2-6M14 22V10h8v12"/></svg>',
+ snake:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M8 38c8 0 8-10 16-10s8 10 16 10M40 38V20a8 8 0 0 0-8-8h-2"/><circle cx="26" cy="12" r="4"/></svg>',
+ run:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><circle cx="28" cy="9" r="5"/><path d="M26 15l-6 12 8 4-4 13M20 27l-8 4M26 20l10 4M4 44h40"/></svg>',
+ m3:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="6" width="10" height="10" rx="2"/><rect x="19" y="6" width="10" height="10" rx="2"/><rect x="32" y="6" width="10" height="10" rx="2"/><path d="M8 34l8-8 8 8 8-8 8 8v8H8z"/></svg>',
+ drop:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M24 6s13 15 13 24a13 13 0 0 1-26 0C11 21 24 6 24 6z"/><path d="M18 31a6 6 0 0 0 6 6"/></svg>',
+ cards:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="8" y="10" width="20" height="30" rx="3" transform="rotate(-10 18 25)"/><rect x="20" y="8" width="20" height="30" rx="3"/></svg>',
+ uno:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="12" width="16" height="24" rx="3"/><rect x="16" y="8" width="16" height="24" rx="3"/><rect x="26" y="12" width="16" height="24" rx="3"/></svg>',
+ puzzle:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M10 10h10a4 4 0 1 1 8 0h10v10a4 4 0 1 0 0 8v10H28a4 4 0 1 0-8 0H10V28a4 4 0 1 1 0-8z"/></svg>',
+ memory:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3"><rect x="6" y="8" width="16" height="22" rx="3"/><rect x="26" y="8" width="16" height="22" rx="3"/><circle cx="14" cy="19" r="3"/><circle cx="34" cy="19" r="3"/><path d="M6 38h36"/></svg>',
+ quiz:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M8 40V18L24 8l16 10v22z"/><path d="M19 40V28h10v12"/></svg>',
+ chat:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M8 10h32v22H20l-8 7v-7H8z"/></svg>'
+};
+const FINC={CR:"var(--CR)",SS:"var(--SS)",GM:"var(--GM)",BG:"var(--BG)",WH:"radial-gradient(circle at 35% 30%,#fff,#e8e4de 60%,#c9c2b8)",BL:"radial-gradient(circle at 35% 30%,#6a6a70,#2a2a2e 60%,#0d0d0e)",GL:"var(--CR)",NO:"var(--CR)"};
+const FINN={CR:"хром",SS:"сатин",GM:"вороненая сталь",BG:"брашированное золото"};
+
+/* ===== состояние ===== */
+const S={view:"hub",from:/from=qr/.test(location.search+location.hash)?"qr":"",best:{},plays:{}};
+try{Object.assign(S,JSON.parse(localStorage.getItem("tg_save")||"{}"))}catch(e){}
+S.view="hub";
+const save=()=>{try{localStorage.setItem("tg_save",JSON.stringify({best:S.best,plays:S.plays}))}catch(e){}};
+const track=(ev,data)=>{try{const k="tg_ev";const a=JSON.parse(localStorage.getItem(k)||"[]");a.push({ev,data,t:Date.now()});localStorage.setItem(k,JSON.stringify(a.slice(-300)))}catch(e){}};
+const app=document.getElementById("app"),phone=document.getElementById("phone");
+const $=(s,r=document)=>r.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function toast(t){const e=document.createElement("div");e.className="toast";e.textContent=t;phone.appendChild(e);setTimeout(()=>e.remove(),2000)}
+const rnd=n=>Math.floor(Math.random()*n);
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=rnd(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+function topbar(title,sub,stat){return `<div class="top"><button class="back" data-a="hub" aria-label="Ко всем играм">←</button><div class="t"><b>${title}</b><span>${sub||""}</span></div>${stat!=null?`<span class="stat" id="stat">${stat}</span>`:""}</div>`}
+let current=null;
+function open(id){if(current&&current.stop)current.stop();current=GAMES[id];S.view=id;S.plays[id]=(S.plays[id]||0)+1;save();track("game_open",{id});current.start()}
+function hub(){if(current&&current.stop)current.stop();current=null;S.view="hub";renderHub()}
+function botLink(label){return CONFIG.BOT_URL?`<a class="btn ghost" href="${CONFIG.BOT_URL}" target="_blank" rel="noopener" data-a="bot">${IC.chat.replace('<svg','<svg width="20" height="20"')} ${label||"Задать вопрос в чат-боте"}</a>`:`<button class="btn ghost" data-a="bot">${IC.chat.replace('<svg','<svg width="20" height="20"')} ${label||"Задать вопрос в чат-боте"}</button>`}
+
+/* ===== модели TOKITO: реальные фото на белом фоне (папка Drive) ===== */
+const MODELS={
+ air1013cr:["TOK-AIR-1013CR","Душевая система AIR","хром"],
+ air1013gm:["TOK-AIR-1013GM","Душевая система AIR","вороненая сталь"],
+ air1028:["TOK-AIR-1028","Душевая система AIR с термостатом",""],
+ ais1016:["TOK-AIS-1016","Смеситель для кухни с гибким изливом",""],
+ ais1017:["TOK-AIS-1017","Смеситель для кухни",""],
+ ais1018:["TOK-AIS-1018","Смеситель для кухни с подключением фильтра",""],
+ ais1019:["TOK-AIS-1019","Смеситель для кухни с фильтром питьевой воды","вороненая сталь"],
+ ais1020:["TOK-AIS-1020","Смеситель для кухни с подключением фильтра",""],
+ ais1021:["TOK-AIS-1021","Смеситель для кухни с подключением фильтра",""],
+ ais1023gm:["TOK-AIS-1023GM","Смеситель для кухни AISAI с вытяжным изливом","вороненая сталь"]
+};
+const MIMG=k=>`img/p_${k}.jpg`;
+function modelsBlock(keys,title){return `<div><div class="h2">${title||"Модели TOKITO"}</div></div><div class="models">${keys.map(k=>{const m=MODELS[k];return `<a class="model" href="${WB_SEARCH(m[0])}" target="_blank" rel="noopener"><img src="${MIMG(k)}" alt="${esc(m[1])}" loading="lazy"><b>${esc(m[1])}</b><span>${m[0]}${m[2]?" · "+m[2]:""}</span></a>`}).join("")}</div>`}
+
+/* ===== докупка после игр ===== */
+const UPSELL={
+ cart:["Картридж","Если кран стал подтекать или туго ходит рычаг",IC.cart,"картридж"],
+ aer:["Аэратор","Ровная струя и меньше брызг",IC.aerator,"аэратор"],
+ gasket:["Набор прокладок","Для соединений, гаек и шлангов",IC.gasket,"прокладки"],
+ hose:["Гибкая подводка и шланг","Когда старый потерял гибкость",IC.snake,"шланг"],
+ acc:["Аксессуары","Ершик, мыльница, держатели в том же покрытии",IC.tile,"аксессуары"]
+};
+function finish(id,o){
+ const best=S.best[id];if(o.score!=null&&(best==null||(o.lowerBetter?o.score<best:o.score>best))){S.best[id]=o.score;save();o.rec=true}
+ track("game_finish",{id,score:o.score});
+ const ups=(o.upsell||["cart","aer","gasket"]).map(k=>UPSELL[k]);
+ app.innerHTML=topbar(GAMES[id].title,"Итог")+`<div class="scr fin">
+  ${o.photo?`<div class="finphoto"><img src="img/${o.photo}" alt="Кэндзи"></div>`:""}
+  <div><div class="k">${o.kicker||"Партия окончена"}</div><div class="h1" style="margin-top:6px">${o.title}</div><p class="sub" style="margin-top:6px">${o.text||""}</p></div>
+  ${o.stats?`<div class="stats">${o.stats.map(s=>`<div><b>${s[1]}</b><span>${s[0]}</span></div>`).join("")}</div>`:""}
+  ${o.rec?`<div class="chip acc">Личный рекорд</div>`:""}
+  ${o.extra||""}
+  ${o.models?modelsBlock(o.models,o.modelsTitle):""}
+  <div><div class="h2">Что можно докупить</div><p class="note" style="margin-top:4px">Подборка для дома после игры. Ссылки ведут на поиск TOKITO на Wildberries.</p></div>
+  <div class="card upsell">${ups.map(u=>`<a href="${WB_SEARCH(u[3])}" target="_blank" rel="noopener"><span class="ic">${u[2]}</span><span><b>${u[0]}</b><span>${u[1]}</span></span><em>WB</em></a>`).join("")}</div>
+  <div class="card bonus"><span class="hanko">賞</span><div><b>${CONFIG.BONUS}</b><span>Код и правила бренд сообщит отдельно</span></div></div>
+  <div class="row"><button class="btn" data-a="again" data-v="${id}">Сыграть ещё</button><button class="btn ghost" data-a="hub">Все игры</button></div>
+  ${botLink()}
+ </div>`;
+}
+
+/* ===== хаб ===== */
+const LINE_BUY=["snake","mines","puzzle","memory","runner","match","solitaire","uno"];
+function renderHub(){
+ const qr=S.from==="qr";
+ const quizBlock=`<div class="sec"><div class="k">Для новых гостей</div></div>
+  <button class="card quizcard" data-a="open" data-v="quiz"><img src="img/q_b_sand.jpg" alt=""><span class="tx"><span class="chip acc">Квиз · 7 вопросов</span><b>Ваша комната по-японски</b><span class="sub" style="font-size:12.5px">Подберём дизайн ванной, туалета, кухни или душа и товары TOKITO к нему.</span></span></button>`;
+ const buyBlock=`<div class="sec"><div class="k">Для тех, кто уже купил</div><span class="note">2–3 минуты</span></div>
+  <div class="grid2">${LINE_BUY.map(id=>{const g=GAMES[id];return `<button class="card gcard${id==="uno"||id==="runner"?" wide":""}" data-a="open" data-v="${id}"><span class="ic" style="color:${g.color}">${g.icon}</span><b>${g.title}</b><span class="d">${g.desc}</span>${S.best[id]!=null?`<span class="best">${g.bestLabel?g.bestLabel(S.best[id]):S.best[id]}</span>`:""}</button>`}).join("")}</div>`;
+ app.innerHTML=`<div class="scr">
+  <div class="hero"><img src="img/real_kenji_bath_s.jpg" alt="Кэндзи, лицо бренда TOKITO"><div class="tx"><div class="k">TOKITO</div><div class="h1">Игры Кэндзи</div><p>${qr?"Спасибо за покупку. Здесь короткие игры про уход и детали, за результат бонус.":"Спокойные игры о доме, воде и деталях. Выберите, во что сыграть."}</p></div></div>
+  ${qr?buyBlock+quizBlock:quizBlock+buyBlock}
+  <p class="note" style="text-align:center;margin-top:4px">Тексты в играх спокойные, цвета и шрифты по брендбуку. Прогресс сохраняется на этом устройстве.</p>
+ </div>`;
+}
+
+/* ===== события ===== */
+phone.addEventListener("click",e=>{const el=e.target.closest("[data-a]");if(!el)return;const a=el.dataset.a,v=el.dataset.v;
+ if(a==="hub")return hub();
+ if(a==="open")return open(v);
+ if(a==="again")return open(v);
+ if(a==="bot"){track("bot_click",{from:S.view});if(!CONFIG.BOT_URL){e.preventDefault();toast("Ссылку на чат-бота подставим перед запуском")}return}
+ if(current&&current.click)current.click(a,v,el,e);
+});
+
+
+const GAMES={};
+/* ===== Квиз «Ваша комната по-японски» ===== */
+(function(){
+const DES={
+ stone:{n:"Камень",mood:"Строгое, тёмное",in:"Графитовые акценты и натуральный камень",fin:["GM","BL"],jp:"石"},
+ sand:{n:"Песок",mood:"Тёплое, мягкое",in:"Бежевые и тауповые тона, сатин",fin:["SS","WH","CR"],jp:"砂"},
+ air:{n:"Воздух",mood:"Светлое, тихое",in:"Много света и пустого места, хром",fin:["CR","WH","GL"],jp:"空"},
+ bronze:{n:"Бронза",mood:"Тёплое, с блеском",in:"Брашированное золото и латунь",fin:["BG"],jp:"銅"},
+ cherry:{n:"Вишня",mood:"Светлое с одним акцентом",in:"Молочные тона и один вишнёвый предмет",fin:["CR","WH"],jp:"桜"},
+ smart:{n:"Технологичный",mood:"Удобство",in:"Смесители с фильтром питьевой воды, термостатом и вытяжным изливом",fin:["CR","SS","GM"],jp:"技",smart:true}
+};
+const ROOMIMG={bath:"b",toilet:"t",kitchen:"k",shower:"b"};
+const SVG={
+ small:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><rect x="18" y="18" width="20" height="20" rx="2"/></svg>',
+ mid:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><rect x="12" y="12" width="32" height="32" rx="2"/></svg>',
+ big:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><rect x="5" y="9" width="46" height="38" rx="2"/></svg>',
+ one:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><circle cx="22" cy="18" r="6"/><circle cx="36" cy="18" r="6"/><path d="M12 44c0-8 4-14 10-14s10 6 10 14M26 44c0-8 4-14 10-14s10 6 10 14"/></svg>',
+ kids:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><circle cx="18" cy="14" r="6"/><circle cx="38" cy="22" r="4"/><path d="M8 46c0-10 4-18 10-18s10 8 10 18M31 46c0-7 3-12 7-12s7 5 7 12"/></svg>',
+ guests:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><circle cx="14" cy="18" r="5"/><circle cx="28" cy="14" r="5"/><circle cx="42" cy="18" r="5"/><path d="M6 44c0-8 3-14 8-14M50 44c0-8-3-14-8-14M18 44c0-9 4-16 10-16s10 7 10 16"/></svg>',
+ care:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3" stroke-linecap="round"><path d="M14 40l14-24 14 24M20 32h16"/><path d="M42 14l4-4M46 18h4M38 10V6"/></svg>',
+ beauty:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><path d="M28 8l5 12 13 1-10 8 3 13-11-7-11 7 3-13-10-8 13-1z"/></svg>',
+ tech:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><rect x="10" y="12" width="36" height="24" rx="3"/><path d="M20 44h16M28 36v8M18 24h6M30 24h8"/></svg>',
+ scratch:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3"><path d="M8 46V22L28 8l20 14v24z"/><path d="M20 46V32h16v14"/></svg>',
+ one_part:'<svg viewBox="0 0 56 56" fill="none" stroke="#2E2A26" stroke-width="3" stroke-linecap="round"><path d="M18 44h20M28 44V28M28 28c0-8 6-12 12-12h2v6"/><path d="M22 28h12"/><circle cx="12" cy="14" r="4"/><path d="M12 18v8"/></svg>'
+};
+const orb=f=>`<div class="orb" style="background:${FINC[f]}"></div>`;
+const Q=[
+ {id:"room",q:"Что оформляем?",img:true,o:[["bath","Ванную","q_b_air.jpg"],["toilet","Туалет","q_t_sand.jpg"],["kitchen","Кухню","q_k_air.jpg"],["shower","Душ","q_b_stone.jpg"]]},
+ {id:"size",q:"Какого размера помещение?",o:[["s","Маленькое","до 4 м²",SVG.small],["m","Среднее","4–8 м²",SVG.mid],["l","Большое","больше 8 м²",SVG.big]]},
+ {id:"mood",q:"Какое настроение ближе?",img:true,o:[["air","Светлое и тихое","q_b_air.jpg"],["sand","Тёплое и мягкое","q_b_sand.jpg"],["stone","Тёмное и строгое","q_b_stone.jpg"]]},
+ {id:"fin",q:"Какое покрытие нравится?",o:[["CR","Хром","холодный блеск"],["SS","Сатин","мягкий матовый"],["GM","Вороненая сталь","глубокий тёмный"],["BG","Брашированное золото","тёплый блеск"]],orbs:true},
+ {id:"who",q:"Кто пользуется?",o:[["one","Один или пара","",SVG.one],["kids","Семья с детьми","",SVG.kids],["guests","Часто бывают гости","",SVG.guests]]},
+ {id:"prio",q:"Что важнее?",o:[["care","Простой уход","",SVG.care],["beauty","Красота","",SVG.beauty],["tech","Технологии","",SVG.tech]]},
+ {id:"plan",q:"Что делаем?",o:[["scratch","Ремонт с нуля","",SVG.scratch],["one","Обновляем одну деталь","",SVG.one_part]]}
+];
+let st;
+function score(a){const s={stone:0,sand:0,air:0,bronze:0,cherry:0,smart:0};
+ s[a.mood]+=3;
+ ({CR:{air:2,cherry:1},SS:{sand:2},GM:{stone:2},BG:{bronze:3}})[a.fin]&&Object.entries(({CR:{air:2,cherry:1},SS:{sand:2},GM:{stone:2},BG:{bronze:3}})[a.fin]).forEach(([k,v])=>s[k]+=v);
+ if(a.size==="s")s.air+=1;
+ if(a.who==="kids")s.air+=1; if(a.who==="guests"){s.cherry+=2;s.bronze+=1}
+ if(a.prio==="tech")s.smart+=4; if(a.prio==="beauty"){s.cherry+=2;s.bronze+=1} if(a.prio==="care")s.air+=1;
+ if(a.mood==="air"&&a.prio==="beauty")s.cherry+=1;
+ return Object.entries(s).sort((x,y)=>y[1]-x[1])[0][0]}
+const SLOTS_BY_ROOM={bath:[["bmixer",["TOK-KAT-1011CR","TOK-KAT-1011GM","TOK-AOM-1011BG","TOK-AMA-1011BL"]],["shower",["TOK-RAI-1031CR","TOK-RAI-1031GM","TOK-AIR-1030BG","TOK-RAI-1015BL"]],["mirror",["TOK-INA-6070","TOK-INA-8060BG","TOK-INA-8070"]],["soap",["N040","K036","BR036"]]],
+ toilet:[["toilet",["TOK-TATSUMAKI-SUMO","TOK-TATSUMAKI-4-0SQ","TOK-TATSUMAKI-4-0TY"]],["button",["TOK-TATSUMAKI-SQ-CH","TOK-TATSUMAKI-SQ-GM","TOK-TATSUMAKI-SQ-GB","TOK-TATSUMAKI-RD-BL"]],["brush",["BR020","ST020","1095"]],["inst",["TOK-TATSUMAKI-43","TOK-TATSUMAKI-50"]]],
+ kitchen:[["kmixer",["TOK-KAT-1013CR","TOK-KAT-1013GM","TOK-AIS-1023SS","TOK-AIS-1023GM","TOK-AMA-1013BL"]],["ksink",["TOK-OKA-6050-ST","TOK-OKA-6050-GF"]]],
+ shower:[["shower",["TOK-RAI-1031CR","TOK-RAI-1031GM","TOK-AIR-1030BG","TOK-RAI-1015BL"]],["bmixer",["TOK-KAT-1011CR","TOK-KAT-1011GM","TOK-AOM-1011BG","TOK-AMA-1011BL"]],["soap",["N040","K036","BR036"]]]};
+function picks(a,d){const fins=[a.fin,...DES[d].fin];let out=[];
+ for(const [slot,list] of SLOTS_BY_ROOM[a.room]){const items=list.map(k=>ITEMS[k]).filter(Boolean);
+  let best=items.sort((x,y)=>{const sx=fins.indexOf(x.fin),sy=fins.indexOf(y.fin);return (sx<0?9:sx)-(sy<0?9:sy)})[0];
+  if(DES[d].smart){const t=items.find(i=>i.thermo||i.filter||i.soft);if(t)best=t}
+  if(best)out.push(best)}
+ if(a.plan==="one")out=out.slice(0,2);
+ return out.slice(0,4)}
+function render(){
+ if(st.i<Q.length){const q=Q[st.i];
+  app.innerHTML=topbar("Ваша комната по-японски",`Вопрос ${st.i+1} из ${Q.length}`)+`<div class="scr">
+  <div class="qprog">${Q.map((x,i)=>`<i class="${i<=st.i?"on":""}"></i>`).join("")}</div>
+  <div class="h1" style="font-size:24px">${q.q}</div>
+  <div class="opts ${q.o.length===2?"":""}">${q.o.map(o=>`<button class="opt" data-a="ans" data-v="${o[0]}" aria-pressed="${st.a[q.id]===o[0]}">${q.img?`<img src="img/${o[2]}" alt="">`:q.orbs?`<span class="art">${orb(o[0])}</span>`:`<span class="art">${o[3]}</span>`}<b>${o[1]}</b>${!q.img&&o[2]?`<span>${o[2]}</span>`:"<span></span>"}</button>`).join("")}</div>
+  ${st.i>0?`<button class="btn ghost sm" data-a="qback" style="align-self:flex-start">Назад</button>`:""}
+ </div>`;return}
+ const d=score(st.a),D=DES[d],img=`img/q_${ROOMIMG[st.a.room]}_${d}.jpg`,pr=picks(st.a,d);
+ track("quiz_result",{design:d,room:st.a.room});
+ const roomN={bath:"ванная",toilet:"туалет",kitchen:"кухня",shower:"душ"}[st.a.room];
+ app.innerHTML=topbar("Ваша комната по-японски","Результат")+`<div class="scr">
+  <div class="result"><img src="${img}" alt="Дизайн ${D.n}"><div class="lb"><span class="hanko">${D.jp}</span><div><div class="k">Ваш дизайн · ${roomN}</div><div class="h2">«${D.n}»</div><div class="note">${D.mood}. ${D.in}.</div></div></div></div>
+  <div><div class="h2">TOKITO в этом образе</div><p class="note" style="margin-top:4px">${st.a.plan==="one"?"Начните с главной детали, остальное можно добавить позже.":"Комплект для ремонта с нуля."} Цена и наличие на карточке Wildberries.</p></div>
+  <div class="card" style="padding:4px 0">${pr.map(it=>`<div class="prod">${Object.keys(MODELS).find(k=>MODELS[k][0]===it.sku)?`<img class="pimg" src="${MIMG(Object.keys(MODELS).find(k=>MODELS[k][0]===it.sku))}" alt="">`:`<span class="orb" style="background:${FINC[it.fin]}"></span>`}<div><div class="nm">${esc(it.name)}</div><div class="sm">${FIN[it.fin]?FIN[it.fin].n:""} · ${it.sku}</div></div>${it.wb?`<a href="${WB_ITEM(it.wb)}" target="_blank" rel="noopener" data-a="wb">WB</a>`:""}</div>`).join("")}</div>
+  ${(()=>{const dark=d==="stone"||d==="bronze";const m=st.a.room==="kitchen"?(d==="smart"?["ais1019","ais1021"]:dark?["ais1023gm","ais1017"]:["ais1016","ais1018"]):st.a.room==="toilet"?null:(dark?["air1013gm","air1028"]:["air1013cr","air1028"]);return m?modelsBlock(m,"Ещё модели под этот образ"):""})()}
+  <div class="row"><button class="btn" data-a="qshare">Поделиться</button><button class="btn ghost" data-a="qagain">Пройти ещё раз</button></div>
+  ${botLink()}
+  <p class="note">В рабочей версии товары берём из таблицы хитов отдела продаж, чтобы показывать только то, что есть на складе.</p>
+ </div>`;
+ st.d=d;
+}
+GAMES.quiz={title:"Ваша комната по-японски",desc:"Квиз для новых гостей",icon:IC.quiz,color:"#7A1F2B",
+ start(){st={i:0,a:{}};track("quiz_start");render()},
+ click(a,v){if(a==="ans"){st.a[Q[st.i].id]=v;st.i++;render();app.querySelector(".scr").scrollTo(0,0)}
+  if(a==="qback"){st.i--;render()}
+  if(a==="qagain"){st={i:0,a:{}};render()}
+  if(a==="qshare"){const D=DES[st.d];const t=`Мой интерьер по-японски: «${D.n}». ${D.mood}. Пройдите квиз TOKITO и узнайте свой.`;track("quiz_share",{design:st.d});
+   (navigator.share?navigator.share({title:"Ваша комната по-японски",text:t,url:location.href.split("#")[0]}).catch(()=>{}):navigator.clipboard.writeText(t+" "+location.href.split("#")[0]).then(()=>toast("Текст и ссылка скопированы")).catch(()=>toast("Скопируйте ссылку из адресной строки")))}
+  if(a==="wb")track("wb_click",{from:"quiz"})}
+};
+})();
+
+
+/* ===== «Гибкий шланг» (змейка) ===== */
+(function(){
+const N=15;let st,raf,cv,ctx,CELL;
+const GOOD=[["toilet","Унитаз","#2E2A26"],["faucet","Смеситель","#7A1F2B"],["cart","Картридж","#4F6F8F"],["aerator","Аэратор","#4F7A5A"],["gasket","Прокладка","#B08A4A"]];
+const BAD=[["rust","Ржавчина","#9A4A1E"],["scale","Накипь","#BFB8AA"]];
+const imgs={};
+function iconImg(key,color){const k=key+color;if(imgs[k])return imgs[k];const i=new Image();i.src="data:image/svg+xml;utf8,"+encodeURIComponent(IC[key].replace(/<svg(?![^>]*xmlns)/,'<svg xmlns="http://www.w3.org/2000/svg"').replace(/currentColor/g,color));imgs[k]=i;return i}
+function empty(){let p;do{p={x:rnd(N),y:rnd(N)}}while(st.body.some(b=>b.x===p.x&&b.y===p.y)||st.items.some(i=>i.x===p.x&&i.y===p.y));return p}
+function spawnGood(){const g=GOOD[rnd(GOOD.length)];st.items.push({...empty(),k:g[0],n:g[1],c:g[2],good:true})}
+function spawnBad(){const b=BAD[rnd(2)];st.items.push({...empty(),k:b[0],n:b[1],c:b[2],good:false,ttl:60+rnd(60)})}
+function reset(){st={body:[{x:7,y:7},{x:6,y:7},{x:5,y:7}],dir:{x:1,y:0},next:{x:1,y:0},items:[],got:{},score:0,step:0,speed:190,acc:0,last:0,alive:true,started:false,label:null};
+ GOOD.forEach(g=>st.got[g[0]]=0);spawnGood();spawnGood();spawnBad()}
+function setDir(x,y){if(st.dir.x===-x&&st.dir.y===-y)return;st.next={x,y};if(!st.started){st.started=true;$("#ov")?.remove()}}
+function tick(t){raf=requestAnimationFrame(tick);if(!st.last)st.last=t;const dt=t-st.last;st.last=t;
+ if(st.started&&st.alive){st.acc+=dt;while(st.acc>=st.speed){st.acc-=st.speed;step()}}
+ draw()}
+function step(){st.dir=st.next;const h=st.body[0],n={x:(h.x+st.dir.x+N)%N,y:(h.y+st.dir.y+N)%N};
+ if(st.body.slice(0,-1).some(b=>b.x===n.x&&b.y===n.y))return over("Шланг перекрутился");
+ st.body.unshift(n);const it=st.items.find(i=>i.x===n.x&&i.y===n.y);
+ if(it){st.items=st.items.filter(i=>i!==it);
+  if(!it.good)return over(it.k==="rust"?"Шланг поймал ржавчину":"Шланг поймал накипь");
+  st.got[it.k]++;st.score+=10;st.label={t:it.n,x:n.x,y:n.y,life:40};$("#stat").textContent=st.score;st.speed=Math.max(95,st.speed-4);spawnGood();if(st.score%30===0)spawnBad()}
+ else st.body.pop();
+ st.items.forEach(i=>{if(!i.good){i.ttl--;if(i.ttl<=0){st.items=st.items.filter(x=>x!==i);spawnBad()}}})}
+function draw(){const W=N*CELL;ctx.clearRect(0,0,W,W);ctx.fillStyle="#FBF8F3";ctx.fillRect(0,0,W,W);
+ ctx.strokeStyle="#EFE8DE";ctx.lineWidth=1;for(let i=1;i<N;i++){ctx.beginPath();ctx.moveTo(i*CELL,0);ctx.lineTo(i*CELL,W);ctx.stroke();ctx.beginPath();ctx.moveTo(0,i*CELL);ctx.lineTo(W,i*CELL);ctx.stroke()}
+ st.items.forEach(i=>{const cx=i.x*CELL+CELL/2,cy=i.y*CELL+CELL/2;
+  if(i.good){ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(cx,cy,CELL*.46,0,7);ctx.fill();ctx.strokeStyle=i.c;ctx.lineWidth=1.5;ctx.stroke();const im=iconImg(i.k,i.c);if(im.complete&&im.naturalWidth)ctx.drawImage(im,cx-CELL*.34,cy-CELL*.34,CELL*.68,CELL*.68)}
+  else{ctx.fillStyle=i.c;for(let k=0;k<5;k++){ctx.globalAlpha=.55+k*.08;ctx.beginPath();ctx.arc(cx+Math.cos(k*1.3)*CELL*.18,cy+Math.sin(k*1.7)*CELL*.18,CELL*(.16+k*.02),0,7);ctx.fill()}ctx.globalAlpha=1}});
+ // шланг
+ ctx.lineCap="round";ctx.lineJoin="round";
+ for(let pass=0;pass<2;pass++){ctx.strokeStyle=pass?"#E9EDF0":"#8A95A0";ctx.lineWidth=pass?CELL*.38:CELL*.58;ctx.beginPath();
+  st.body.forEach((b,i)=>{const x=b.x*CELL+CELL/2,y=b.y*CELL+CELL/2;const p=st.body[i-1];if(i===0||Math.abs(p.x-b.x)>1||Math.abs(p.y-b.y)>1)ctx.moveTo(x,y);else ctx.lineTo(x,y)});ctx.stroke()}
+ ctx.strokeStyle="#A9B3BC";ctx.lineWidth=1;st.body.forEach((b,i)=>{if(i%2)return;const x=b.x*CELL+CELL/2,y=b.y*CELL+CELL/2;ctx.beginPath();ctx.arc(x,y,CELL*.24,0,7);ctx.stroke()});
+ const h=st.body[0],hx=h.x*CELL+CELL/2,hy=h.y*CELL+CELL/2;ctx.fillStyle="#C9D0D6";ctx.beginPath();ctx.arc(hx,hy,CELL*.46,0,7);ctx.fill();ctx.strokeStyle="#6F7A85";ctx.lineWidth=2;ctx.stroke();
+ ctx.fillStyle="#6F7A85";for(let k=0;k<6;k++){ctx.beginPath();ctx.arc(hx+Math.cos(k)*CELL*.22,hy+Math.sin(k)*CELL*.22,1.6,0,7);ctx.fill()}
+ if(st.label&&st.label.life-->0){ctx.globalAlpha=Math.min(1,st.label.life/15);ctx.font="700 13px Manrope";ctx.fillStyle="#2E2A26";const tx=Math.min(W-60,Math.max(40,st.label.x*CELL+CELL/2));ctx.textAlign="center";ctx.fillText(st.label.t,tx,Math.max(14,st.label.y*CELL-6-(40-st.label.life)*.6));ctx.globalAlpha=1}
+}
+function over(why){st.alive=false;cancelAnimationFrame(raf);
+ const missing=GOOD.filter(g=>st.got[g[0]]===0).map(g=>g[1].toLowerCase());
+ const caught=GOOD.filter(g=>st.got[g[0]]>0).map(g=>`${g[1].toLowerCase()} ×${st.got[g[0]]}`);
+ setTimeout(()=>finish("snake",{score:st.score,photo:"k_fin_toilet.jpg",kicker:why,title:`Шланг вырос до ${st.body.length} звеньев`,
+  text:caught.length?`Поймано: ${caught.join(", ")}.`+(missing.length?` Не встретились: ${missing.join(", ")}. Возможно, именно их не хватает дома.`:" Собраны все детали."):"Детали не успели попасться. Попробуйте ещё раз.",
+  stats:[["Очки",st.score],["Деталей",Object.values(st.got).reduce((a,b)=>a+b,0)],["Длина",st.body.length]],upsell:["cart","aer","gasket","hose"]}),500)}
+GAMES.snake={title:"Гибкий шланг",desc:"Ловите детали, обходите ржавчину и накипь",icon:IC.snake,color:"#4F6F8F",
+ start(){app.innerHTML=topbar("Гибкий шланг","Змейка",0)+`<div class="stage"><canvas class="gc" id="cv"></canvas><div class="hint">Свайп по полю, стрелки или кнопки</div>
+  <div class="pad"><button class="u" data-a="dir" data-v="0,-1" aria-label="Вверх">↑</button><button class="l" data-a="dir" data-v="-1,0" aria-label="Влево">←</button><button class="d" data-a="dir" data-v="0,1" aria-label="Вниз">↓</button><button class="r" data-a="dir" data-v="1,0" aria-label="Вправо">→</button></div>
+  <div class="overlay" id="ov" style="position:absolute"><div class="h2">Гибкий шланг</div><p class="sub">Ловите унитаз, смеситель, картридж, аэратор и прокладку. Ржавчину и накипь ловить нельзя.</p><button class="btn" data-a="go" style="max-width:220px">Начать</button></div></div>`;
+  cv=$("#cv");const W=Math.min(350,app.clientWidth-28);CELL=Math.floor(W/N);const dpr=window.devicePixelRatio||1;cv.width=N*CELL*dpr;cv.height=N*CELL*dpr;cv.style.width=cv.style.height=N*CELL+"px";ctx=cv.getContext("2d");ctx.scale(dpr,dpr);
+  reset();raf=requestAnimationFrame(tick);
+  let sx,sy;cv.addEventListener("pointerdown",e=>{sx=e.clientX;sy=e.clientY});cv.addEventListener("pointerup",e=>{const dx=e.clientX-sx,dy=e.clientY-sy;if(Math.abs(dx)<12&&Math.abs(dy)<12)return;Math.abs(dx)>Math.abs(dy)?setDir(Math.sign(dx),0):setDir(0,Math.sign(dy))});
+  this.key=e=>{const m={ArrowUp:[0,-1],ArrowDown:[0,1],ArrowLeft:[-1,0],ArrowRight:[1,0]}[e.key];if(m){e.preventDefault();setDir(...m)}};addEventListener("keydown",this.key)},
+ stop(){cancelAnimationFrame(raf);removeEventListener("keydown",this.key)},
+ click(a,v){if(a==="dir"){const [x,y]=v.split(",").map(Number);setDir(x,y)}if(a==="go"){st.started=true;$("#ov").remove()}}
+};
+})();
+
+
+/* ===== «Путь Кэндзи» (платформер-раннер) ===== */
+(function(){
+let cv,ctx,W,H,G,raf,st,face,prize;
+const LV=[{n:"Кухня",wall:"#F1EAE0",tile:"#E5DACB",floor:"#CDBBA4",acc:"#4F7A5A",len:2600},
+ {n:"Ванная",wall:"#E8EEF0",tile:"#D5DFE3",floor:"#AFC0C7",acc:"#4F6F8F",len:3000},
+ {n:"Санузел",wall:"#EFE9EC",tile:"#E0D5DA",floor:"#BFAEB5",acc:"#7A1F2B",len:3200}];
+const icons={};function ic(k,c){const key=k+c;if(!icons[key]){const i=new Image();i.src="data:image/svg+xml;utf8,"+encodeURIComponent(IC[k].replace(/<svg(?![^>]*xmlns)/,'<svg xmlns="http://www.w3.org/2000/svg"').replace(/currentColor/g,c));icons[key]=i}return icons[key]}
+function level(i){const L=LV[i];const obs=[];let x=520;
+ while(x<L.len-300){const t=["puddle","drip","pipe"][rnd(i===0?2:3)];obs.push({t,x,w:t==="puddle"?46+rnd(26):t==="pipe"?26:20,done:false,y:0,vy:0,fall:t==="drip"?0:null});
+  if(rnd(2))obs.push({t:rnd(2)?"cart":"aerator",x:x+120+rnd(80),y:G-70-rnd(70),coin:true});
+  x+=230+rnd(200)-i*20}
+ return obs}
+function reset(){st={lv:0,x:0,speed:4.2,y:G,vy:0,jumps:0,lives:3,inv:0,score:0,got:{cart:0,aerator:0},fixed:0,obs:level(0),phase:"run",banner:{t:"Кухня",life:90},t:0,fin:false}}
+function jump(){if(st.phase!=="run")return;if(st.jumps<2){st.vy=st.jumps?-9.5:-11.5;st.jumps++}}
+function hit(){if(st.inv>0)return;st.lives--;st.inv=70;if(st.lives<=0){st.phase="over";setTimeout(end,700)}}
+function update(){st.t++;if(st.phase!=="run"&&st.phase!=="toilet")return;
+ const L=LV[st.lv];st.x+=st.speed;st.vy+=.6;st.y+=st.vy;if(st.y>=G){st.y=G;st.vy=0;st.jumps=0}if(st.inv>0)st.inv--;
+ const kx=90,kw=26,kh=58;
+ st.obs.forEach(o=>{const sx=o.x-st.x;
+  if(o.coin){if(!o.taken&&Math.abs(sx-kx)<26&&Math.abs((st.y-kh/2)-o.y)<38){o.taken=true;st.got[o.t]++;st.score+=15}return}
+  if(o.t==="drip"){if(o.fall!==null&&(o.fall>0||sx<335))o.fall+=6;const dy=o.fall;if(dy!==null&&Math.abs(sx-kx)<16&&dy>st.y-60&&dy<st.y+2)hit();if(dy!==null&&dy>G+20)o.fall=null}
+  else if(o.t==="puddle"){if(sx>kx-o.w&&sx<kx+8&&st.y>=G-2)hit()}
+  else if(o.t==="pipe"){if(sx>kx-o.w-6&&sx<kx+10&&st.y>G-40)hit()}
+  if(!o.done&&sx<kx-o.w-10){o.done=true;st.score+=5;if(o.t==="pipe"){st.fixed++;st.pop={t:"Починено",life:40}}}
+ });
+ if(st.x>L.len){if(st.lv<2){st.lv++;st.x=0;st.obs=level(st.lv);st.speed+=.5;st.banner={t:LV[st.lv].n,life:90}}else if(st.phase==="run"){st.phase="toilet";st.tx=st.x+420}}
+ if(st.phase==="toilet"&&st.x>st.tx-160){st.phase="win";st.score+=100;setTimeout(end,1600)}
+}
+function drawKenji(x,y){const run=st.phase==="run"||st.phase==="toilet";const ph=run&&y>=G?Math.sin(st.t*.35):0;
+ if(st.inv>0&&Math.floor(st.inv/5)%2)return;ctx.save();ctx.translate(x,y);
+ ctx.strokeStyle="#5E1620";ctx.lineWidth=7;ctx.lineCap="round";
+ ctx.beginPath();ctx.moveTo(-4,-22);ctx.lineTo(-4+ph*9,0);ctx.moveTo(5,-22);ctx.lineTo(5-ph*9,0);ctx.stroke();
+ ctx.fillStyle="#7A1F2B";ctx.beginPath();ctx.roundRect(-12,-48,26,28,8);ctx.fill();
+ ctx.strokeStyle="#7A1F2B";ctx.lineWidth=6;ctx.beginPath();ctx.moveTo(-10,-42);ctx.lineTo(-16-ph*5,-28);ctx.moveTo(12,-42);ctx.lineTo(18+ph*5,-28);ctx.stroke();
+ ctx.fillStyle="#fff";ctx.font="700 6px Manrope";ctx.fillText("TOKITO",-10,-36);
+ ctx.save();ctx.beginPath();ctx.arc(1,-60,13,0,7);ctx.clip();if(face.complete&&face.naturalWidth)ctx.drawImage(face,-12,-73,26,26);ctx.restore();
+ ctx.strokeStyle="#fff";ctx.lineWidth=2;ctx.beginPath();ctx.arc(1,-60,13,0,7);ctx.stroke();
+ ctx.fillStyle="#F4F1EC";ctx.beginPath();ctx.ellipse(1,-77,5,5,0,0,7);ctx.fill();
+ ctx.restore()}
+function draw(){const L=LV[st.lv];ctx.fillStyle=L.wall;ctx.fillRect(0,0,W,H);
+ const off=(st.x*.5)%40;ctx.strokeStyle=L.tile;ctx.lineWidth=1;for(let x=-off;x<W;x+=40){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,G-60);ctx.stroke()}for(let y=20;y<G-60;y+=40){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(W,y);ctx.stroke()}
+ ctx.fillStyle=L.floor;ctx.fillRect(0,G,W,H-G);ctx.fillStyle="rgba(0,0,0,.06)";for(let x=-(st.x%60);x<W;x+=60)ctx.fillRect(x,G,2,H-G);
+ st.obs.forEach(o=>{const sx=o.x-st.x;if(sx<-80||sx>W+60)return;
+  if(o.coin){if(o.taken)return;ctx.fillStyle="#fff";ctx.beginPath();ctx.arc(sx,o.y,15,0,7);ctx.fill();ctx.strokeStyle=L.acc;ctx.lineWidth=1.5;ctx.stroke();const im=ic(o.t,L.acc);if(im.complete&&im.naturalWidth)ctx.drawImage(im,sx-11,o.y-11,22,22);return}
+  if(o.t==="puddle"){ctx.fillStyle="#7FB6D6";ctx.beginPath();ctx.ellipse(sx-o.w/2,G+3,o.w/2,6,0,0,7);ctx.fill();ctx.fillStyle="rgba(255,255,255,.6)";ctx.fillRect(sx-o.w/2-8,G+1,10,2)}
+  if(o.t==="pipe"){ctx.fillStyle="#9AA3AB";ctx.fillRect(sx-o.w,G-38,o.w,38);ctx.fillStyle="#7B848C";ctx.fillRect(sx-o.w-4,G-42,o.w+8,8);
+   if(!o.done){ctx.fillStyle="#7FB6D6";for(let k=0;k<3;k++){ctx.beginPath();ctx.arc(sx-o.w/2+Math.sin(st.t*.3+k)*6,G-50-k*8,3,0,7);ctx.fill()}}else{ctx.fillStyle="#4F7A5A";ctx.fillRect(sx-o.w,G-30,o.w,4)}}
+  if(o.t==="drip"){ctx.fillStyle="#9AA3AB";ctx.fillRect(sx-12,0,24,10);if(o.fall!==null){ctx.fillStyle="#5FA3CC";ctx.beginPath();const y=Math.max(14,o.fall);ctx.moveTo(sx,y-10);ctx.quadraticCurveTo(sx+8,y+2,sx,y+6);ctx.quadraticCurveTo(sx-8,y+2,sx,y-10);ctx.fill()}}
+ });
+ if(st.phase==="toilet"||st.phase==="win"){const sx=st.tx-st.x;ctx.fillStyle="#fff";ctx.beginPath();ctx.roundRect(sx-50,G-210,110,210,14);ctx.fill();ctx.strokeStyle="#E3DCD2";ctx.lineWidth=1.5;ctx.stroke();if(prize&&prize.complete&&prize.naturalWidth){const w=prize.naturalWidth,h=prize.naturalHeight;ctx.drawImage(prize,w*.25,0,w*.5,h,sx-45,G-205,100,200)}
+  ctx.fillStyle="#2E2A26";ctx.font="700 12px Manrope";ctx.textAlign="center";ctx.fillText("Душевая система AIR",sx+5,G-220);ctx.textAlign="left"}
+ drawKenji(90,st.y);
+ ctx.fillStyle="#2E2A26";ctx.font="700 12px Manrope";ctx.fillText(LV[st.lv].n,12,20);
+ for(let i=0;i<3;i++){ctx.fillStyle=i<st.lives?"#5FA3CC":"#D9D2C7";ctx.beginPath();const x=W-20-i*18,y=16;ctx.moveTo(x,y-7);ctx.quadraticCurveTo(x+7,y+3,x,y+6);ctx.quadraticCurveTo(x-7,y+3,x,y-7);ctx.fill()}
+ const prog=Math.min(1,st.x/LV[st.lv].len);ctx.fillStyle="rgba(0,0,0,.08)";ctx.fillRect(12,28,120,4);ctx.fillStyle=L.acc;ctx.fillRect(12,28,120*prog,4);
+ if(st.banner&&st.banner.life-->0){ctx.globalAlpha=Math.min(1,st.banner.life/20);ctx.fillStyle="rgba(246,242,236,.9)";ctx.fillRect(0,H/2-60,W,54);ctx.fillStyle="#2E2A26";ctx.font="600 24px 'Noto Serif'";ctx.textAlign="center";ctx.fillText(st.banner.t,W/2,H/2-26);ctx.textAlign="left";ctx.globalAlpha=1}
+ if(st.pop&&st.pop.life-->0){ctx.fillStyle="#4F7A5A";ctx.font="700 12px Manrope";ctx.fillText(st.pop.t,74,st.y-96)}
+}
+function loop(){raf=requestAnimationFrame(loop);update();draw();const s=$("#stat");if(s)s.textContent=st.score}
+function end(){cancelAnimationFrame(raf);const win=st.phase==="win";
+ finish("runner",{score:st.score,photo:win?"k_fin_runner.jpg":null,kicker:win?"Все уровни пройдены":"Протечки победили",title:win?"Кэндзи дошёл до душевой системы AIR":`Пройдено: ${LV[st.lv].n.toLowerCase()}`,
+  text:win?"Кухня, ванная и санузел позади. В финале душевая система TOKITO AIR.":"Кэндзи споткнулся. Протечки коварны, но всё чинится.",
+  stats:[["Очки",st.score],["Картриджи",st.got.cart],["Аэраторы",st.got.aerator]],upsell:["cart","aer","gasket"],
+  models:win?["air1013cr","air1013gm"]:null,modelsTitle:"Финал уровня: душевая система AIR"})}
+GAMES.runner={title:"Путь Кэндзи",desc:"Кухня, ванная, санузел и душевая система в финале",icon:IC.run,color:"#7A1F2B",
+ start(){app.innerHTML=topbar("Путь Кэндзи","Платформер",0)+`<div class="stage"><canvas class="gc" id="cv"></canvas><div class="hint">Тап или пробел: прыжок. Два тапа: двойной прыжок. Ловите картриджи и аэраторы.</div>
+  <button class="btn" data-a="jump" style="max-width:350px">Прыжок</button>
+  <div class="overlay" id="ov" style="position:absolute"><div class="h2">Путь Кэндзи</div><p class="sub">Кэндзи молчит и бежит. Перепрыгивайте лужи, капли и сломанные трубы. Три уровня и душевая система AIR в конце.</p><button class="btn" data-a="go" style="max-width:220px">Начать</button></div></div>`;
+  face=new Image();face.src="img/real_kenji_face.jpg";prize=new Image();prize.src=MIMG("air1013cr");
+  cv=$("#cv");W=Math.min(350,app.clientWidth-28);H=420;G=H-70;const dpr=window.devicePixelRatio||1;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+"px";cv.style.height=H+"px";ctx=cv.getContext("2d");ctx.scale(dpr,dpr);
+  reset();st.phase="wait";draw();
+  cv.addEventListener("pointerdown",()=>jump());
+  this.key=e=>{if(e.code==="Space"||e.key==="ArrowUp"){e.preventDefault();jump()}};addEventListener("keydown",this.key)},
+ stop(){cancelAnimationFrame(raf);removeEventListener("keydown",this.key)},
+ click(a){if(a==="jump")jump();if(a==="go"){$("#ov").remove();st.phase="run";loop()}}
+};
+})();
+
+
+/* ===== «Дом Кэндзи» (три в ряд) ===== */
+(function(){
+const N=7;const T=[["tile","Плитка","#8C7B68"],["faucet","Смеситель","#7A1F2B"],["shower","Лейка","#4F6F8F"],["cart","Картридж","#4F7A5A"],["aerator","Аэратор","#B08A4A"]];
+const LEVELS=[{g:{tile:12,faucet:8},m:20},{g:{shower:10,cart:10},m:20},{g:{aerator:12,faucet:10},m:22},{g:{tile:14,shower:12,cart:8},m:26}];
+let st,busy=false;
+const svg=t=>IC[T[t][0]].replace("currentColor",T[t][2]).replace(/currentColor/g,T[t][2]);
+function rndT(){return rnd(T.length)}
+function initGrid(){const g=[];for(let r=0;r<N;r++){g.push([]);for(let c=0;c<N;c++){let t;do{t=rndT()}while((c>=2&&g[r][c-1]===t&&g[r][c-2]===t)||(r>=2&&g[r-1][c]===t&&g[r-2][c]===t));g[r].push(t)}}return g}
+function matches(g){const m=new Set();
+ for(let r=0;r<N;r++){let run=1;for(let c=1;c<=N;c++){if(c<N&&g[r][c]===g[r][c-1]&&g[r][c]!=null)run++;else{if(run>=3)for(let k=c-run;k<c;k++)m.add(r*N+k);run=1}}}
+ for(let c=0;c<N;c++){let run=1;for(let r=1;r<=N;r++){if(r<N&&g[r][c]===g[r-1][c]&&g[r][c]!=null)run++;else{if(run>=3)for(let k=r-run;k<r;k++)m.add(k*N+c);run=1}}}
+ return m}
+function hasMove(g){for(let r=0;r<N;r++)for(let c=0;c<N;c++)for(const [dr,dc] of [[0,1],[1,0]]){const r2=r+dr,c2=c+dc;if(r2>=N||c2>=N)continue;[g[r][c],g[r2][c2]]=[g[r2][c2],g[r][c]];const ok=matches(g).size>0;[g[r][c],g[r2][c2]]=[g[r2][c2],g[r][c]];if(ok)return true}return false}
+function render(drops){const L=LEVELS[st.lv];
+ $("#m3").innerHTML=st.g.map((row,r)=>row.map((t,c)=>`<button data-a="cell" data-v="${r*N+c}" class="${st.sel===r*N+c?"sel":""} ${drops&&drops.has(r*N+c)?"drop":""}" aria-label="${T[t][1]}">${svg(t)}</button>`).join("")).join("");
+ $("#goals").innerHTML=Object.entries(L.g).map(([k,n])=>{const ti=T.findIndex(x=>x[0]===k);const left=Math.max(0,n-(st.got[k]||0));return `<span class="goal ${left?"":"done"}">${svg(ti)}${left?left:"✓"}</span>`}).join("")+`<span class="goal">ходы ${st.moves}</span>`;
+ $("#stat").textContent=st.score}
+function reveal(){const p=Math.min(1,st.lv/LEVELS.length);$("#aft").style.clipPath=`inset(0 ${100-p*100}% 0 0)`}
+async function resolve(){let chain=0;
+ while(true){const m=matches(st.g);if(!m.size)break;chain++;
+  m.forEach(i=>{const t=st.g[Math.floor(i/N)][i%N];const k=T[t][0];st.got[k]=(st.got[k]||0)+1;st.score+=10*chain});
+  m.forEach(i=>{const b=$(`#m3 [data-v="${i}"]`);b&&b.classList.add("pop")});
+  const kn=$("#kn");kn.classList.remove("nod");void kn.offsetWidth;kn.classList.add("nod");
+  await new Promise(r=>setTimeout(r,220));
+  const drops=new Set();
+  for(let c=0;c<N;c++){const col=[];for(let r=N-1;r>=0;r--)if(!m.has(r*N+c))col.push(st.g[r][c]);
+   for(let r=N-1,k=0;r>=0;r--,k++){if(k<col.length){if(st.g[r][c]!==col[k]||m.has(r*N+c))drops.add(r*N+c);st.g[r][c]=col[k]}else{st.g[r][c]=rndT();drops.add(r*N+c)}}}
+  render(drops);await new Promise(r=>setTimeout(r,260))}
+ if(chain>1)$("#hint").textContent=`Каскад ×${chain}. Кэндзи кивает.`;
+ if(!hasMove(st.g)){st.g=initGrid();render();$("#hint").textContent="Ходов не осталось, плитка перемешана."}
+ check()}
+function check(){const L=LEVELS[st.lv];const done=Object.entries(L.g).every(([k,n])=>(st.got[k]||0)>=n);
+ if(done){st.lv++;reveal();if(st.lv>=LEVELS.length){busy=true;setTimeout(()=>end(true),1100);return}
+  busy=true;setTimeout(()=>{st.got={};st.moves=LEVELS[st.lv].m;busy=false;render();$("#lvl").textContent=`Уровень ${st.lv+1} из ${LEVELS.length}`;$("#hint").textContent="Часть комнаты обновилась."},900);return}
+ if(st.moves<=0){busy=true;setTimeout(()=>end(false),500)}}
+async function swap(a,b){if(busy)return;const ra=Math.floor(a/N),ca=a%N,rb=Math.floor(b/N),cb=b%N;if(Math.abs(ra-rb)+Math.abs(ca-cb)!==1){st.sel=b;render();return}
+ busy=true;st.sel=null;[st.g[ra][ca],st.g[rb][cb]]=[st.g[rb][cb],st.g[ra][ca]];render();
+ if(!matches(st.g).size){await new Promise(r=>setTimeout(r,180));[st.g[ra][ca],st.g[rb][cb]]=[st.g[rb][cb],st.g[ra][ca]];render();$("#hint").textContent="Так ряд не собрать.";busy=false;return}
+ st.moves--;await resolve();busy=false;if(st.lv<LEVELS.length)render()}
+function end(win){finish("match",{score:st.score,kicker:win?"Комната обновлена":"Ходы закончились",title:win?"Старая ванная стала новой":`Обновлено ${st.lv} из ${LEVELS.length} частей комнаты`,
+ text:win?"Все четыре уровня пройдены. Завтра откроется новая комната и новая коллекция.":"Вернитесь завтра, комната дождётся.",
+ stats:[["Очки",st.score],["Уровень",`${Math.min(st.lv+1,LEVELS.length)}/${LEVELS.length}`],["Ходы",st.moves]],upsell:["cart","aer","acc"],
+ extra:`<div class="room" style="aspect-ratio:16/10;max-width:none"><img src="img/real_b_before.jpg" alt="Было"><img class="after" src="img/real_b_zen.jpg" alt="Стало" style="clip-path:inset(0 ${100-Math.min(1,st.lv/LEVELS.length)*100}% 0 0)"></div>`})}
+GAMES.match={title:"Дом Кэндзи",desc:"Три в ряд, старая ванная становится новой",icon:IC.m3,color:"#4F7A5A",
+ start(){busy=false;st={lv:0,g:initGrid(),got:{},moves:LEVELS[0].m,score:0,sel:null};
+  app.innerHTML=topbar("Дом Кэндзи","Три в ряд",0)+`<div class="stage">
+  <div class="room"><img src="img/real_b_before.jpg" alt="Старая ванная"><img class="after" id="aft" src="img/real_b_zen.jpg" alt="Новая ванная" style="clip-path:inset(0 100% 0 0)"><img class="kenji-nod" id="kn" src="img/real_kenji_face.jpg" alt="Кэндзи"></div>
+  <div class="k" id="lvl">Уровень 1 из ${LEVELS.length}</div>
+  <div class="goals" id="goals"></div>
+  <div class="m3wrap"><div class="m3" id="m3"></div></div>
+  <div class="hint" id="hint">Меняйте соседние предметы, собирайте три в ряд.</div></div>`;
+  render();
+  const m3=$("#m3");let sp=null;m3.addEventListener("pointerdown",e=>{const b=e.target.closest("[data-v]");if(b)sp={i:+b.dataset.v,x:e.clientX,y:e.clientY}});
+  m3.addEventListener("pointerup",e=>{if(!sp)return;const dx=e.clientX-sp.x,dy=e.clientY-sp.y;if(Math.max(Math.abs(dx),Math.abs(dy))>18){const r=Math.floor(sp.i/N),c=sp.i%N;let t;if(Math.abs(dx)>Math.abs(dy))t=dx>0&&c<N-1?sp.i+1:dx<0&&c>0?sp.i-1:null;else t=dy>0&&r<N-1?sp.i+N:dy<0&&r>0?sp.i-N:null;if(t!=null){st.sel=null;swap(sp.i,t);st.swiped=true}}sp=null})},
+ click(a,v){if(a!=="cell"||busy)return;if(st.swiped){st.swiped=false;return}const i=+v;if(st.sel==null){st.sel=i;render()}else if(st.sel===i){st.sel=null;render()}else swap(st.sel,i)},
+ stop(){}
+};
+})();
+
+
+/* ===== «Протечка» (сапёр) ===== */
+(function(){
+const C=8,R=10,M=12;let st;
+const TIPS=[["соединения","Чаще всего течёт в местах соединения гибкой подводки. Подтяните гайку на четверть оборота и проверьте прокладку.","gasket"],
+ ["гайки","Гайка затянута слишком сильно или слабо. Перетяжка давит прокладку, недотяжка пропускает воду.","gasket"],
+ ["картридж","Если капает из-под рычага или из излива при закрытом кране, пора менять картридж.","cart"]];
+function init(){st={cells:Array.from({length:C*R},()=>({m:false,o:false,f:false,n:0})),first:true,flags:0,mode:"open",t0:0,over:false,timer:null}}
+const nb=i=>{const x=i%C,y=Math.floor(i/C),o=[];for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const nx=x+dx,ny=y+dy;if(nx>=0&&nx<C&&ny>=0&&ny<R)o.push(ny*C+nx)}return o};
+function place(safe){const ban=new Set([safe,...nb(safe)]);let k=0;while(k<M){const i=rnd(C*R);if(ban.has(i)||st.cells[i].m)continue;st.cells[i].m=true;k++}
+ st.cells.forEach((c,i)=>c.n=nb(i).filter(j=>st.cells[j].m).length)}
+function openCell(i){const c=st.cells[i];if(c.o||c.f)return;c.o=true;if(c.m)return lose(i);if(c.n===0)nb(i).forEach(openCell)}
+function render(){$("#mg").innerHTML=st.cells.map((c,i)=>{let cls="mcell",tx="";if(c.o){cls+=" open";if(c.m){cls+=" leak";tx="💧"}else if(c.n){tx=c.n;cls+=" n"+c.n}}else if(c.f){cls+=" flag";tx="⊘"}return `<button class="${cls}" data-a="mc" data-v="${i}" aria-label="${c.o?(c.n||"пусто"):c.f?"заглушка":"плитка"}">${tx}</button>`}).join("");
+ $("#stat").textContent=`${M-st.flags} протечек`}
+function win(){st.over=true;clearInterval(st.timer);const s=Math.round((Date.now()-st.t0)/1000);const tip=TIPS[rnd(3)];
+ setTimeout(()=>finish("mines",{score:s,photo:"k_fin_mines.jpg",lowerBetter:true,kicker:"Все протечки найдены",title:`Стена сухая за ${s} сек`,text:`Откуда течёт чаще всего: ${tip[0]}. ${tip[1]}`,stats:[["Время",s+" с"],["Протечек",M],["Заглушек",st.flags]],upsell:[tip[2],"gasket","cart"],
+  extra:CONFIG.TG_URL?`<a class="btn ghost" href="${CONFIG.TG_URL}" target="_blank" rel="noopener">Инструкция в Telegram</a>`:""}),600)}
+function lose(i){st.over=true;clearInterval(st.timer);st.cells.forEach(c=>{if(c.m)c.o=true});render();const tip=TIPS[rnd(3)];
+ setTimeout(()=>finish("mines",{kicker:"Под плиткой была протечка",title:"Вода нашлась раньше заглушки",text:`Подсказка сервиса: ${tip[1]}`,stats:[["Найдено",st.cells.filter(c=>c.f&&c.m).length],["Всего",M],["Открыто",st.cells.filter(c=>c.o&&!c.m).length]],upsell:[tip[2],"gasket","cart"],
+  extra:CONFIG.TG_URL?`<a class="btn ghost" href="${CONFIG.TG_URL}" target="_blank" rel="noopener">Инструкция в Telegram</a>`:""}),1200)}
+function act(i,flag){if(st.over)return;const c=st.cells[i];
+ if(flag||st.mode==="flag"){if(c.o)return;c.f=!c.f;st.flags+=c.f?1:-1;render();return}
+ if(st.first){st.first=false;place(i);st.t0=Date.now();st.timer=setInterval(()=>{const h=$("#tm");if(h)h.textContent=Math.round((Date.now()-st.t0)/1000)+" с"},500)}
+ openCell(i);render();if(!st.over&&st.cells.every(c=>c.o||c.m))win()}
+GAMES.mines={title:"Протечка",desc:"Найдите все протечки под плиткой",icon:IC.drop,color:"#4F6F8F",bestLabel:v=>v+" с",
+ start(){init();app.innerHTML=topbar("Протечка","Сапёр","")+`<div class="stage">
+  <div class="row" style="width:100%;max-width:350px;align-items:center"><div class="seg" style="flex:none"><button data-a="mode" data-v="open" aria-pressed="true">Открыть</button><button data-a="mode" data-v="flag" aria-pressed="false">⊘ Заглушка</button></div><span class="note" id="tm" style="text-align:right">0 с</span></div>
+  <div class="mgrid" id="mg" style="grid-template-columns:repeat(${C},1fr)"></div>
+  <div class="hint">Цифра показывает, сколько протечек рядом. Долгое нажатие ставит заглушку.</div></div>`;render();
+  let pt;const mg=$("#mg");mg.addEventListener("pointerdown",e=>{const b=e.target.closest("[data-v]");if(!b)return;pt=setTimeout(()=>{act(+b.dataset.v,true);pt="done"},450)});
+  mg.addEventListener("pointerup",()=>{if(pt!=="done")clearTimeout(pt)});mg.addEventListener("contextmenu",e=>{e.preventDefault()});this.pt=()=>pt;this.clearPt=()=>{pt=null}},
+ click(a,v,el){if(a==="mode"){st.mode=v;el.parentElement.querySelectorAll("button").forEach(b=>b.setAttribute("aria-pressed",b===el))}
+  if(a==="mc"){if(this.pt()==="done"){this.clearPt();return}act(+v,false)}},
+ stop(){if(st)clearInterval(st.timer)}
+};
+})();
+
+
+/* ===== «Плиточный пасьянс» (косынка) ===== */
+(function(){
+const SU=[["CR","Хром",0],["GM","Вороненая сталь",0],["SS","Сатин",1],["BG","Золото",1]];// 0 холодные, 1 тёплые
+const RK=["A","2","3","4","5","6","7","8","9","10","J","Q","K"];
+const CW=47,CH=68,GAP=5.5,TOP=0,TY=84;let st;
+function deal(){const d=[];SU.forEach((s,si)=>RK.forEach((r,ri)=>d.push({s:si,r:ri,up:false,id:si*13+ri})));shuffle(d);
+ st={stock:[],waste:[],fnd:[[],[],[],[]],tab:[[],[],[],[],[],[],[]],sel:null,moves:0,t0:Date.now()};
+ for(let c=0;c<7;c++)for(let k=0;k<=c;k++){const card=d.pop();card.up=k===c;st.tab[c].push(card)}
+ st.stock=d}
+const colX=c=>c*(CW+GAP);
+const warm=card=>SU[card.s][2];
+function cardHTML(card,x,y,z,where){const sel=st.sel&&st.sel.ids.includes(card.id);
+ return `<div class="pcard ${card.up?"":"back"} ${sel?"sel":""}" data-a="pc" data-v="${where}" style="left:${x}px;top:${y}px;z-index:${z}"><span class="r" style="color:${warm(card)?"#9A773E":"#4A5058"}">${RK[card.r]}</span><span class="o2" style="background:${FINC[SU[card.s][0]]}"></span><span class="o" style="background:${FINC[SU[card.s][0]]}"></span></div>`}
+function render(){let h="";
+ h+=`<div class="slot" data-a="stock" style="left:0;top:${TOP}px">↻</div>`;
+ if(st.stock.length)h+=`<div class="pcard back" data-a="stock" style="left:0;top:${TOP}px;z-index:2"></div>`;
+ st.waste.slice(-3).forEach((c,i,arr)=>{h+=cardHTML(c,colX(1)+i*9,TOP,10+i,i===arr.length-1?"w":"x")});
+ st.fnd.forEach((f,i)=>{h+=`<div class="slot" data-a="pc" data-v="f${i}" style="left:${colX(3+i)}px;top:${TOP}px"><span style="width:16px;height:16px;border-radius:50%;background:${FINC[SU[i][0]]};opacity:.35"></span></div>`;if(f.length)h+=cardHTML(f[f.length-1],colX(3+i),TOP,5,"f"+i)});
+ let maxY=TY+CH;
+ st.tab.forEach((col,c)=>{h+=`<div class="slot" data-a="pc" data-v="t${c}:-1" style="left:${colX(c)}px;top:${TY}px"></div>`;let y=TY;
+  col.forEach((card,k)=>{h+=cardHTML(card,colX(c),y,20+k,`t${c}:${k}`);maxY=Math.max(maxY,y+CH);y+=card.up?20:9})});
+ const box=$("#sol");box.innerHTML=h;box.style.height=maxY+10+"px";
+ $("#stat").textContent=`${st.fnd.reduce((a,f)=>a+f.length,0)}/52`}
+function pick(where){// возвращает {src, idx, cards}
+ if(where==="w"){const c=st.waste[st.waste.length-1];return c&&{src:"w",cards:[c]}}
+ if(where[0]==="f"){const f=st.fnd[+where[1]];const c=f[f.length-1];return c&&{src:where,cards:[c]}}
+ if(where[0]==="t"){const [c,k]=where.slice(1).split(":").map(Number);if(k<0)return null;const col=st.tab[c];if(!col[k]||!col[k].up)return null;return {src:"t"+c,idx:k,cards:col.slice(k)}}
+ return null}
+function canFnd(card,fi){const f=st.fnd[fi];if(card.s!==fi)return false;return f.length?f[f.length-1].r===card.r-1:card.r===0}
+function canTab(card,ci){const col=st.tab[ci];if(!col.length)return card.r===12;const t=col[col.length-1];return t.up&&t.r===card.r+1&&warm(t)!==warm(card)}
+function remove(p){if(p.src==="w")st.waste.pop();else if(p.src[0]==="f")st.fnd[+p.src[1]].pop();else{const col=st.tab[+p.src.slice(1)];col.splice(p.idx);const t=col[col.length-1];if(t&&!t.up)t.up=true}}
+function moveTo(p,dest){if(dest[0]==="f"){const fi=+dest[1];if(p.cards.length!==1||!canFnd(p.cards[0],fi))return false;remove(p);st.fnd[fi].push(p.cards[0])}
+ else{const ci=+dest.slice(1).split(":")[0];if(p.src==="t"+ci)return false;if(!canTab(p.cards[0],ci))return false;remove(p);st.tab[ci].push(...p.cards)}
+ st.moves++;return true}
+function autoFnd(p){if(p.cards.length!==1)return false;for(let i=0;i<4;i++)if(canFnd(p.cards[0],i))return moveTo(p,"f"+i);return false}
+function check(){if(st.fnd.every(f=>f.length===13))end(true)}
+function end(win){const done=st.fnd.reduce((a,f)=>a+f.length,0);const s=Math.round((Date.now()-st.t0)/1000);
+ const mix=[["CR","TOK-KAT-1011CR"],["GM","TOK-KAT-1011GM"],["SS","TOK-AIS-1023SS"],["BG","TOK-AOM-1011BG"]];
+ finish("solitaire",{score:done,kicker:win?"Пасьянс сошёлся":"Партия отложена",title:win?`Все четыре покрытия разложены за ${s} сек`:`Разложено ${done} из 52`,
+  text:"Какое покрытие понравилось больше? Посмотрите, как оно смотрится на смесителях TOKITO.",stats:[["В домах",done],["Ходы",st.moves],["Время",s+" с"]],upsell:["aer","cart","acc"],models:["air1013cr","air1013gm"],modelsTitle:"Одна модель в двух покрытиях",
+  extra:`<div class="card" style="padding:4px 0">${mix.map(([f,sku])=>{const it=ITEMS[sku];return it?`<div class="prod"><span class="orb" style="background:${FINC[f]}"></span><div><div class="nm">${FINN[f]}</div><div class="sm">${esc(it.name)}</div></div>${it.wb?`<a href="${WB_ITEM(it.wb)}" target="_blank" rel="noopener">WB</a>`:""}</div>`:""}).join("")}</div>`})}
+GAMES.solitaire={title:"Плиточный пасьянс",desc:"Косынка, где масти это четыре покрытия",icon:IC.cards,color:"#B08A4A",bestLabel:v=>v+"/52",
+ start(){deal();app.innerHTML=topbar("Плиточный пасьянс","Косынка","0/52")+`<div class="stage"><div class="sol" id="sol"></div>
+  <div class="hint">Чередуйте холодные (хром, вороненая сталь) и тёплые (сатин, золото) покрытия. Двойной тап отправит карту в дом.</div>
+  <div class="row" style="width:100%;max-width:362px"><button class="btn ghost sm" data-a="auto">Убрать в дома</button><button class="btn ghost sm" data-a="give">Завершить</button></div></div>`;render()},
+ click(a,v){
+  if(a==="stock"){st.sel=null;if(st.stock.length){const c=st.stock.pop();c.up=true;st.waste.push(c)}else{st.stock=st.waste.reverse().map(c=>({...c,up:false}));st.waste=[]}st.moves++;render();return}
+  if(a==="auto"){let moved=true;while(moved){moved=false;const cands=["w",...st.tab.map((col,c)=>`t${c}:${col.length-1}`)];for(const w of cands){const p=pick(w);if(p&&p.cards.length===1&&autoFnd(p)){moved=true;break}}}st.sel=null;render();check();return}
+  if(a==="give")return end(false);
+  if(a!=="pc"||v==="x")return;
+  const now=Date.now();
+  if(st.sel){const dest=v;if(st.sel.where===v){if(now-st.sel.t<400&&autoFnd(st.sel.p)){st.sel=null;render();check();return}st.sel=null;render();return}
+   if(moveTo(st.sel.p,dest[0]==="f"?dest.slice(0,2):dest)){st.sel=null;render();check();return}
+   const p=pick(v);st.sel=p?{p,where:v,t:now,ids:p.cards.map(c=>c.id)}:null;render();return}
+  const p=pick(v);if(!p)return;st.sel={p,where:v,t:now,ids:p.cards.map(c=>c.id)};render()},
+ stop(){}
+};
+})();
+
+
+/* ===== «Колода Tokito» (по мотивам уно): с ботами или онлайн с друзьями ===== */
+(function(){
+const COL=[["#7A1F2B","Вишня"],["#A88A63","Песок"],["#3E3A36","Графит"],["#5E7A5A","Чай"]];
+const label=c=>c.v==="skip"?"⊘<small>Протечка</small>":c.v==="rev"?"⇄<small>Обратный клапан</small>":c.v==="wild"?"時<small>Кэндзи</small>":c.v;
+const bgOf=(c,col)=>c.v==="wild"?(col!=null?COL[col][0]:"conic-gradient("+COL.map((x,k)=>`${x[0]} ${k*25}% ${(k+1)*25}%`).join(",")+")"):COL[c.c][0];
+const RULES=`<p class="note" style="text-align:center">Совпадайте по цвету или значению. «Протечка» пропускает ход, «Обратный клапан» меняет направление, «Кэндзи» меняет цвет.</p>`;
+let mode=null;
+
+/* ---------- режим с ботами ---------- */
+let st,busy=false;
+function deck(){const d=[];COL.forEach((c,ci)=>{d.push({c:ci,v:0});for(let n=1;n<=9;n++){d.push({c:ci,v:n},{c:ci,v:n})}for(let k=0;k<2;k++){d.push({c:ci,v:"skip"},{c:ci,v:"rev"})}});for(let k=0;k<4;k++)d.push({c:null,v:"wild"});return shuffle(d)}
+const ok=(c)=>c.v==="wild"||c.c===st.color||c.v===st.top.v;
+function draw(n,p){for(let i=0;i<n;i++){if(!st.deck.length){const top=st.pile.pop();st.deck=shuffle(st.pile.map(c=>c.v==="wild"?{...c,c:null}:c));st.pile=[top]}if(st.deck.length)st.hands[p].push(st.deck.pop())}}
+function init(){st={deck:deck(),pile:[],hands:[[],[],[]],turn:0,dir:1,color:0,top:null,names:["Вы","Аня","Тимур"],log:"",picking:null,drawn:false};
+ for(let p=0;p<3;p++)draw(7,p);let f;do{f=st.deck.pop();if(f.v==="wild"){st.deck.unshift(f);f=null}}while(!f);st.pile.push(f);st.top=f;st.color=f.c}
+function cardHTML(c,i,playable,act){return `<button class="ucard ${playable?"play":""}" data-a="${act||"ucard"}" data-v="${i}" style="background:${bgOf(c)}" ${playable?"":"disabled"} aria-label="карта">${label(c)}</button>`}
+function render(){const me=st.turn===0&&st.picking==null&&!busy;
+ app.querySelector(".unotable").innerHTML=`
+  <div class="opp">${[1,2].map(p=>`<div class="${st.turn===p?"turn":""}"><img src="img/real_kenji_face.jpg" alt="" style="width:26px;height:26px;border-radius:50%;object-fit:cover;filter:${p===1?"sepia(.4)":"grayscale(.4)"}">${st.names[p]}<span class="cnt">${st.hands[p].length}</span></div>`).join("")}</div>
+  <div class="center"><button class="ucard back" data-a="udraw" ${me?"":"disabled"} aria-label="Взять карту"></button><div class="ucard" style="background:${bgOf(st.top,st.color)}">${label(st.top)}</div></div>
+  <div class="hint">${st.picking!=null?"Выберите цвет":st.log||""} · цвет: <b style="color:${COL[st.color][0]}">${COL[st.color][1]}</b></div>
+  ${st.picking!=null?`<div class="colors">${COL.map((c,i)=>`<button data-a="ucol" data-v="${i}" style="background:${c[0]}" aria-label="${c[1]}"></button>`).join("")}</div>`:""}
+  <div class="hand">${st.hands[0].map((c,i)=>cardHTML(c,i,me&&ok(c))).join("")}</div>
+  ${me&&st.drawn&&!st.hands[0].some(ok)?`<button class="btn ghost sm" data-a="upass" style="align-self:center">Пропустить ход</button>`:""}`;
+ $("#stat").textContent=`${st.hands[0].length} карт`}
+const next=(k=1)=>(st.turn+st.dir*k+30)%3;
+function play(p,i,chosen){const c=st.hands[p].splice(i,1)[0];st.pile.push(c);st.top=c;st.color=c.v==="wild"?chosen:c.c;st.drawn=false;
+ st.log=`${st.names[p]}: ${c.v==="skip"?"«Протечка», следующий пропускает ход":c.v==="rev"?"«Обратный клапан», направление сменилось":c.v==="wild"?"«Кэндзи», цвет "+COL[st.color][1]:"карта "+c.v}`;
+ if(!st.hands[p].length)return setTimeout(()=>end(p),700);
+ if(st.hands[p].length===1)st.log+=", остаётся одна карта";
+ if(c.v==="rev")st.dir*=-1;
+ st.turn=c.v==="skip"?next(2):next(1);render();if(st.turn!==0)bot()}
+function bot(){busy=true;setTimeout(()=>{if(mode!=="bots")return;const p=st.turn,h=st.hands[p];let i=h.findIndex(c=>c.v!=="wild"&&ok(c));if(i<0)i=h.findIndex(ok);
+ if(i<0){draw(1,p);const j=h.length-1;if(ok(h[j])){i=j}else{st.log=`${st.names[p]} берёт карту и пропускает ход`;st.turn=next();busy=false;render();if(st.turn!==0)bot();return}}
+ let col=0;if(h[i].v==="wild"){const cnt=[0,0,0,0];h.forEach(c=>{if(c.c!=null)cnt[c.c]++});col=cnt.indexOf(Math.max(...cnt))}
+ busy=false;play(p,i,col)},900)}
+function end(p){const win=p===0;finish("uno",{score:win?1:0,kicker:win?"Вы сбросили все карты":"Партия за соперником",title:win?"Победа за столом TOKITO":`Выиграл(а) ${st.names[p]}`,
+ text:"С живыми соперниками интереснее: создайте онлайн-стол и пришлите друзьям код.",
+ stats:[["Ваших карт",st.hands[0].length],["У Ани",st.hands[1].length],["У Тимура",st.hands[2].length]],upsell:["acc","aer","cart"],
+ extra:`<button class="btn acc" data-a="umode" data-v="online">Сыграть онлайн с друзьями</button>`});S.unoWins=(S.unoWins||0)+(win?1:0)}
+function startBots(){mode="bots";busy=false;init();app.innerHTML=topbar("Колода Tokito","Вы, Аня и Тимур","7 карт")+`<div class="stage"><div class="unotable"></div>${RULES}</div>`;render()}
+
+/* ---------- онлайн ---------- */
+// Код карты: цвет (0–3, 4 = без цвета) + значение (0–9, s, r, w)
+const enc=c=>(c.c==null?4:c.c)+(c.v==="skip"?"s":c.v==="rev"?"r":c.v==="wild"?"w":String(c.v));
+const dec=s=>({c:s[0]==="4"?null:+s[0],v:s[1]==="s"?"skip":s[1]==="r"?"rev":s[1]==="w"?"wild":+s[1]});
+let R=null,ON=null;   // R — пространство room, ON — состояние онлайн-сессии
+const myName=()=>{try{return localStorage.getItem("tg_name")||""}catch(e){return ""}};
+const saveName=n=>{try{localStorage.setItem("tg_name",n)}catch(e){}};
+const cleanName=s=>String(s||"").replace(/[\u0000-\u001f​-‏‪-‮⁠-⁯]/g,"").trim().slice(0,16)||"Гость";
+const genCode=()=>Array.from({length:5},()=>"abcdefghkmnpqrstuvwxyz23456789"[rnd(30)]).join("");
+
+function onlineMenu(msg){mode="online-menu";
+ app.innerHTML=topbar("Колода Tokito","Онлайн с друзьями",null)+`<div class="scr">
+  <div><div class="h1">Стол на 2–4 игроков</div><p class="sub" style="margin-top:6px">Создайте стол и пришлите друзьям код. Они открывают «Игры TOKITO», выбирают «Колоду Tokito», затем «Онлайн» и вводят код.</p></div>
+  ${msg?`<div class="card" style="padding:12px 14px;font-size:13px">${msg}</div>`:""}
+  <label class="note" for="oname">Ваше имя за столом</label>
+  <input id="oname" class="inp" maxlength="16" value="${esc(myName())}" placeholder="Например, Оля">
+  <button class="btn" data-a="ocreate">Создать стол</button>
+  <div class="row"><input id="ocode" class="inp" maxlength="5" placeholder="Код стола" autocapitalize="off" style="flex:1"><button class="btn ghost" data-a="ojoin" style="flex:none;width:auto;padding:0 18px">Войти</button></div>
+  <button class="btn ghost" data-a="umode" data-v="bots">Сыграть с ботами</button>
+  <p class="note">Друзья должны открыть это приложение в Claude и иметь к нему доступ. Карты соперников не видны, ход переходит по кругу.</p>
+ </div>`}
+async function getRoom(){if(R)return R;try{R=window.claude&&window.claude.use?await window.claude.use("room"):null}catch(e){R=null}return R}
+async function connect(code,host){
+ const nm=cleanName($("#oname")&&$("#oname").value);saveName(nm);
+ app.querySelector(".scr").insertAdjacentHTML("afterbegin",`<div class="chip">Подключаемся…</div>`);
+ const room=await getRoom();
+ if(!room)return onlineMenu("Онлайн-стол недоступен в этом окне. Он работает, когда приложение открыто в Claude у вас и у друзей, и у них есть доступ к нему. Пока можно сыграть с ботами.");
+ let r;try{r=await room.join("uno-"+code)}catch(e){return onlineMenu("Не удалось открыть стол, попробуйте ещё раз.")}
+ ON={r,code,host,name:nm,me:null,g:null,seen:{},seq:0,hostPeer:null,unsub:[],picking:null,gone:{},timer:null,ended:false};mode="online";
+ await r.presence(host?{name:nm,host:1,g:null}:{name:nm});
+ ON.unsub.push(r.onPeers(ch=>onPeers(ch)));
+ renderOnline()}
+function onPeers(ch){if(!ON)return;const r=ON.r;const mine=ch.peers.find(p=>p.sameTab);if(mine)ON.me=mine.peer;
+ if(ON.host){
+  // гости присылают ходы через своё присутствие: {act:{n,t,i,c}}
+  ch.peers.forEach(p=>{if(p.sameTab||!ON.g)return;const a=p.presence&&p.presence.act;if(!a||typeof a.n!=="number")return;if((ON.seen[p.peer]||0)>=a.n)return;ON.seen[p.peer]=a.n;const pi=ON.g.p.indexOf(p.peer);if(pi>=0)apply(pi,a)});
+  ch.left.forEach(p=>{if(ON.g){const pi=ON.g.p.indexOf(p.peer);if(pi>=0&&!ON.g.gone.includes(pi)){ON.g.gone.push(pi);ON.g.log=`${ON.g.n[pi]} вышел(а), за него ходит Кэндзи`;publish();autoTurn()}}});
+ }else{
+  const h=ch.peers.find(p=>p.presence&&p.presence.host);
+  if(h){ON.hostPeer=h.peer;if(h.presence.g&&(!ON.g||h.presence.g.ver!==ON.g.ver)){ON.g=h.presence.g;ON.picking=null}}
+  else if(ON.hostPeer&&ch.left.some(p=>p.peer===ON.hostPeer)){ON.lost=true}
+ }
+ renderOnline()}
+
+/* ведущий: раздача и правила */
+function newDeck(){return deck().map(enc)}
+function dealOnline(){const ps=ON.r.peers().filter(p=>p.presence&&p.presence.name!=null).sort((a,b)=>(b.sameTab-a.sameTab)).slice(0,4);
+ const d=newDeck();const h=ps.map(()=>d.splice(0,7));let top;do{top=d.shift();if(top[1]==="w"){d.push(top);top=null}}while(!top);
+ ON.g={ver:1,p:ps.map(p=>p.peer),n:ps.map(p=>cleanName(p.presence.name)),h,d:d.join(""),top,col:+top[0],turn:0,dir:1,log:"Раздача готова",win:-1,drawn:false,gone:[]};
+ ON.seen={};ps.forEach(p=>{const a=p.presence&&p.presence.act;ON.seen[p.peer]=a&&typeof a.n==="number"?a.n:0});publish()}
+function gDraw(pi){const g=ON.g;if(g.d.length<2)g.d=newDeck().join("");g.h[pi].push(g.d.slice(0,2));g.d=g.d.slice(2)}
+const gOk=(g,code)=>{const c=dec(code),t=dec(g.top);return c.v==="wild"||c.c===g.col||c.v===t.v};
+const gNext=(g,k)=>{const L=g.p.length;return ((g.turn+g.dir*k)%L+L*4)%L};
+function apply(pi,a){const g=ON.g;if(!g||g.win>=0||g.turn!==pi)return;
+ if(a.t==="play"){const code=g.h[pi][a.i];if(!code||!gOk(g,code))return;const c=dec(code);if(c.v==="wild"&&!(a.c>=0&&a.c<4))return;
+  g.h[pi].splice(a.i,1);g.top=code;g.col=c.v==="wild"?a.c:c.c;g.drawn=false;
+  g.log=`${g.n[pi]}: ${c.v==="skip"?"«Протечка», следующий пропускает ход":c.v==="rev"?"«Обратный клапан»":c.v==="wild"?"«Кэндзи», цвет "+COL[g.col][1]:"карта "+c.v}`;
+  if(!g.h[pi].length){g.win=pi}else{if(g.h[pi].length===1)g.log+=", остаётся одна карта";
+   let skip=c.v==="skip";if(c.v==="rev"){if(g.p.length===2)skip=true;else g.dir*=-1}
+   g.turn=gNext(g,skip?2:1)}}
+ else if(a.t==="draw"){if(g.drawn)return;gDraw(pi);g.drawn=true;g.log=`${g.n[pi]} берёт карту`}
+ else if(a.t==="pass"){if(!g.drawn)return;g.drawn=false;g.log=`${g.n[pi]} пропускает ход`;g.turn=gNext(g,1)}
+ else return;
+ publish();autoTurn()}
+function autoTurn(){const g=ON.g;if(!g||g.win>=0||!g.gone.includes(g.turn))return;clearTimeout(ON.timer);ON.timer=setTimeout(()=>{if(!ON||!ON.g)return;const g=ON.g,pi=g.turn;if(!g.gone.includes(pi))return;
+ let i=g.h[pi].findIndex(c=>gOk(g,c));if(i<0){if(!g.drawn){apply(pi,{t:"draw"});return}apply(pi,{t:"pass"});return}
+ const cnt=[0,0,0,0];g.h[pi].forEach(c=>{if(c[0]!=="4")cnt[+c[0]]++});apply(pi,{t:"play",i,c:cnt.indexOf(Math.max(...cnt))})},900)}
+function publish(){ON.g.ver++;ON.r.presence({name:ON.name,host:1,g:ON.g}).catch(()=>{});renderOnline()}
+function act(a){if(!ON||!ON.g)return;const pi=ON.g.p.indexOf(ON.me);if(pi<0)return;
+ if(ON.host)return apply(pi,a);ON.seq++;ON.r.presence({name:ON.name,act:{n:ON.seq,...a}}).catch(()=>{})}
+
+function renderOnline(){if(mode!=="online"||!ON)return;const g=ON.g;
+ if(ON.lost&&(!g||g.win<0)){app.innerHTML=topbar("Колода Tokito","Онлайн",null)+`<div class="scr"><div class="h1">Создатель стола вышел</div><p class="sub">Партия остановлена. Создайте новый стол или сыграйте с ботами.</p><button class="btn" data-a="umode" data-v="online">Новый стол</button><button class="btn ghost" data-a="umode" data-v="bots">С ботами</button></div>`;return}
+ if(!g){const ps=ON.r.peers().filter(p=>p.presence&&p.presence.name!=null);
+  app.innerHTML=topbar("Колода Tokito","Онлайн · ожидание",`${ps.length}/4`)+`<div class="scr">
+   <div class="card" style="padding:16px;text-align:center"><div class="k">Код стола</div><div class="h1" style="letter-spacing:.2em;margin-top:6px">${esc(ON.code)}</div><p class="note" style="margin-top:6px">Друзья открывают «Колоду Tokito» → «Онлайн» и вводят этот код.</p></div>
+   <button class="btn ghost" data-a="ocopy">Скопировать приглашение</button>
+   <div><div class="h2">За столом</div></div>
+   <div class="card" style="padding:4px 0">${ps.map(p=>`<div class="prod"><img src="img/real_kenji_face.jpg" alt="" class="pimg" style="border-radius:50%;object-fit:cover"><div><div class="nm"></div><div class="sm">${p.presence.host?"создатель стола":"игрок"}${p.sameTab?" · вы":""}</div></div></div>`).join("")}</div>
+   ${ON.host?`<button class="btn" data-a="ostart" ${ps.length<2?"disabled":""}>${ps.length<2?"Ждём хотя бы одного друга":"Начать партию"}</button>`:`<p class="sub" style="text-align:center">Ждём, когда создатель стола начнёт партию.</p>`}
+  </div>`;
+  app.querySelectorAll(".card .prod .nm").forEach((el,i)=>{el.textContent=cleanName(ps[i].presence.name)});return}
+ const mi=g.p.indexOf(ON.me);
+ if(mi<0){app.innerHTML=topbar("Колода Tokito","Онлайн",null)+`<div class="scr"><div class="h1">Партия уже идёт</div><p class="sub">За этим столом играют без вас. Дождитесь следующей партии или создайте свой стол.</p><button class="btn" data-a="umode" data-v="online">Свой стол</button></div>`;return}
+ if(g.win>=0&&!ON.ended){ON.ended=true;const win=g.win===mi;setTimeout(()=>{if(mode!=="online")return;
+  finish("uno",{score:win?1:0,kicker:win?"Вы сбросили все карты":"Партия окончена",title:win?"Победа за онлайн-столом":`Выиграл(а) ${esc(g.n[g.win])}`,text:"Позовите друзей ещё раз: создайте новый стол и пришлите код.",
+   stats:g.n.map((n,i)=>[esc(n),g.h[i].length+" карт"]).slice(0,3),upsell:["acc","aer","cart"],extra:`<button class="btn acc" data-a="umode" data-v="online">Новый онлайн-стол</button>`});leave()},900);}
+ const me=g.turn===mi&&g.win<0;const hand=g.h[mi].map(dec);
+ const others=g.p.map((_,i)=>i).filter(i=>i!==mi);
+ app.innerHTML=topbar("Колода Tokito",`Онлайн · стол ${esc(ON.code)}`,`${hand.length} карт`)+`<div class="stage"><div class="unotable">
+  <div class="opp">${others.map(i=>`<div class="${g.turn===i?"turn":""}"><span class="onm"></span><span class="cnt">${g.h[i].length}</span></div>`).join("")}</div>
+  <div class="center"><button class="ucard back" data-a="odraw" ${me&&!g.drawn?"":"disabled"} aria-label="Взять карту"></button><div class="ucard" style="background:${bgOf(dec(g.top),g.col)}">${label(dec(g.top))}</div></div>
+  <div class="hint"><span id="olog"></span> · цвет: <b style="color:${COL[g.col][0]}">${COL[g.col][1]}</b>${me?" · ваш ход":""}</div>
+  ${ON.picking!=null?`<div class="colors">${COL.map((c,i)=>`<button data-a="ocol" data-v="${i}" style="background:${c[0]}" aria-label="${c[1]}"></button>`).join("")}</div>`:""}
+  <div class="hand">${hand.map((c,i)=>cardHTML(c,i,me&&ON.picking==null&&gOk(g,g.h[mi][i]),"oplay")).join("")}</div>
+  ${me&&g.drawn&&!g.h[mi].some(c=>gOk(g,c))?`<button class="btn ghost sm" data-a="opass" style="align-self:center">Пропустить ход</button>`:""}
+ </div>${RULES}</div>`;
+ app.querySelectorAll(".opp .onm").forEach((el,k)=>{el.textContent=g.n[others[k]]});$("#olog").textContent=g.log||""}
+function leave(){if(!ON)return;clearTimeout(ON.timer);ON.unsub.forEach(u=>{try{u()}catch(e){}});const r=ON.r;ON=null;r.leave().catch(()=>{})}
+
+/* ---------- экран выбора и события ---------- */
+function chooser(){mode="choose";leave();
+ app.innerHTML=topbar("Колода Tokito","Карточная игра",null)+`<div class="scr">
+  <div><div class="h1">Как сыграем?</div><p class="sub" style="margin-top:6px">Карточная игра по мотивам уно, цвета из палитры TOKITO.</p></div>
+  <button class="card choice" data-a="umode" data-v="bots" style="text-align:left;padding:16px"><span class="tx"><b>С ботами</b><span class="sub" style="font-size:12.5px">Вы, Аня и Тимур. Партия на 3–4 минуты.</span></span></button>
+  <button class="card choice" data-a="umode" data-v="online" style="text-align:left;padding:16px"><span class="tx"><span class="chip acc">Новое</span><b>Онлайн с друзьями</b><span class="sub" style="font-size:12.5px">Стол на 2–4 человек по коду. Каждый играет со своего телефона.</span></span></button>
+  ${RULES}
+ </div>`}
+GAMES.uno={title:"Колода Tokito",desc:"Карточная игра по мотивам уно. С ботами или онлайн с друзьями",icon:IC.uno,color:"#7A1F2B",bestLabel:v=>v?"победа":"",
+ start(){busy=false;const m=location.hash.match(/room=([a-z0-9]{5})/);chooser();if(m){onlineMenu();$("#ocode").value=m[1]}},
+ click(a,v){
+  if(a==="umode"){track("uno_mode",{v});if(v==="bots"){leave();return startBots()}leave();return onlineMenu()}
+  if(a==="ocreate"){track("uno_online_create");return connect(genCode(),true)}
+  if(a==="ojoin"){const c=($("#ocode").value||"").toLowerCase().replace(/[^a-z0-9]/g,"");if(c.length!==5)return toast("Код из 5 символов");track("uno_online_join");return connect(c,false)}
+  if(a==="ocopy"){const t=`Сыграем в «Колоду Tokito»? Открой «Игры TOKITO» → «Колода Tokito» → «Онлайн с друзьями», код стола: ${ON.code}`;(navigator.clipboard?navigator.clipboard.writeText(t).then(()=>toast("Приглашение скопировано")):Promise.reject()).catch(()=>toast("Код стола: "+ON.code));return}
+  if(a==="ostart"&&ON&&ON.host){if(ON.r.peers().filter(p=>p.presence&&p.presence.name!=null).length<2)return;track("uno_online_start");return dealOnline()}
+  if(a==="oplay"&&ON&&ON.g){const mi=ON.g.p.indexOf(ON.me);const code=ON.g.h[mi]&&ON.g.h[mi][+v];if(!code)return;if(code[1]==="w"){ON.picking=+v;return renderOnline()}return act({t:"play",i:+v})}
+  if(a==="ocol"&&ON){const i=ON.picking;ON.picking=null;renderOnline();return act({t:"play",i,c:+v})}
+  if(a==="odraw")return act({t:"draw"});
+  if(a==="opass")return act({t:"pass"});
+  if(mode!=="bots")return;
+  if(a==="ucard"&&st.turn===0&&!busy){const c=st.hands[0][+v];if(!ok(c))return;if(c.v==="wild"){st.picking=+v;render();return}play(0,+v)}
+  if(a==="ucol"){const i=st.picking;st.picking=null;play(0,i,+v)}
+  if(a==="udraw"&&st.turn===0&&!st.drawn){draw(1,0);st.drawn=true;st.log="Вы взяли карту";render()}
+  if(a==="upass"){st.drawn=false;st.turn=next();st.log="Вы пропускаете ход";render();bot()}},
+ stop(){busy=false;mode=null;leave()}
+};
+})();
+
+
+/* ===== «Собери смеситель» (пазл) ===== */
+(function(){
+const P=[
+ ["body","Корпус","Латунный корпус держит всю конструкцию. Его крепят к раковине гайкой снизу, под ним гибкая подводка горячей и холодной воды.",
+  '<g><rect x="96" y="150" width="48" height="90" rx="8" fill="url(#mt)"/><rect x="80" y="236" width="80" height="12" rx="6" fill="#8A95A0"/></g>'],
+ ["cart","Картридж","Керамический картридж внутри корпуса смешивает воду и регулирует напор. Если кран начал капать, чаще всего меняют именно его.",
+  '<g><rect x="104" y="112" width="32" height="46" rx="6" fill="#E9E4DC" stroke="#8A95A0" stroke-width="3"/><rect x="116" y="96" width="8" height="18" rx="3" fill="#8A95A0"/><path d="M108 128h24M108 140h24" stroke="#B9B1A6" stroke-width="3"/></g>'],
+ ["spout","Излив","Излив направляет воду в раковину. Его надевают на корпус и фиксируют, чтобы не было люфта.",
+  '<g><path d="M140 170h40a26 26 0 0 1 26 26v8" fill="none" stroke="url(#mt)" stroke-width="18" stroke-linecap="round"/></g>'],
+ ["lever","Рычаг","Рычаг управляет картриджем: вверх и вниз напор, влево и вправо температура. Он закрывает картридж сверху.",
+  '<g><rect x="98" y="92" width="44" height="26" rx="8" fill="url(#mt)"/><rect x="118" y="70" width="70" height="12" rx="6" fill="url(#mt)" transform="rotate(-12 118 76)"/></g>'],
+ ["aer","Аэратор","Аэратор на конце излива смешивает воду с воздухом: струя мягче и меньше брызг. Его раз в полгода снимают и промывают.",
+  '<g><rect x="194" y="200" width="24" height="16" rx="4" fill="#6F7A85"/><path d="M198 222v8M206 222v10M214 222v8" stroke="#7FB6D6" stroke-width="3" stroke-linecap="round"/></g>']
+];
+let st;
+const mixSVG=()=>`<svg class="mix" viewBox="0 0 240 260"><defs><linearGradient id="mt" x1="0" x2="1"><stop offset="0" stop-color="#9AA3AB"/><stop offset=".45" stop-color="#F4F6F8"/><stop offset="1" stop-color="#8A95A0"/></linearGradient></defs>
+ <rect x="20" y="246" width="200" height="6" rx="3" fill="#E5DCCF"/>${P.map(p=>`<g class="part" id="p_${p[0]}">${p[3]}</g>`).join("")}</svg>`;
+const icon=p=>`<svg viewBox="60 60 170 200" width="34" height="34"><defs><linearGradient id="mt2" x1="0" x2="1"><stop offset="0" stop-color="#9AA3AB"/><stop offset=".45" stop-color="#F4F6F8"/><stop offset="1" stop-color="#8A95A0"/></linearGradient></defs>${p[3].replace(/url\(#mt\)/g,"url(#mt2)")}</svg>`;
+function render(){$("#tray").innerHTML=st.order.map(i=>`<button data-a="part" data-v="${i}" class="${st.done.includes(i)?"used":""}">${icon(P[i])}${P[i][1]}</button>`).join("");$("#stat").textContent=`${st.done.length}/5`}
+GAMES.puzzle={title:"Собери смеситель",desc:"Корпус, картридж, излив, рычаг, аэратор",icon:IC.puzzle,color:"#4F6F8F",bestLabel:v=>v+" ош.",
+ start(){st={order:shuffle([0,1,2,3,4]),done:[],err:0,t0:Date.now()};
+  app.innerHTML=topbar("Собери смеситель","Пазл","0/5")+`<div class="stage">${mixSVG()}<div class="explain" id="ex">Соберите смеситель в правильном порядке. Начните с той детали, на которой держится всё остальное.</div><div class="tray" id="tray"></div></div>`;render()},
+ click(a,v,el){if(a!=="part")return;const i=+v,need=st.done.length;
+  if(i!==need){st.err++;el.classList.remove("no");void el.offsetWidth;el.classList.add("no");$("#ex").innerHTML=`<b>Пока рано.</b> ${need===0?"Сначала нужна основа, на которой держатся остальные детали.":`Следующая деталь ставится на «${P[need-1][1].toLowerCase()}».`}`;return}
+  st.done.push(i);$("#p_"+P[i][0]).classList.add("on");$("#ex").innerHTML=`<b>${P[i][1]}.</b> ${P[i][2]}`;render();
+  if(st.done.length===5){const s=Math.round((Date.now()-st.t0)/1000);setTimeout(()=>finish("puzzle",{score:st.err,lowerBetter:true,kicker:"Смеситель собран",photo:"k_fin_puzzle.jpg",title:st.err?`Собрано, подсказок: ${st.err}`:"Собрано без единой ошибки",
+   text:"Теперь понятно, как он устроен. Установка обычно занимает около 40 минут, пошаговая инструкция есть в Telegram TOKITO.",stats:[["Ошибки",st.err],["Время",s+" с"],["Деталей",5]],upsell:["cart","aer","gasket","hose"],models:["ais1019","ais1021","ais1016","ais1023gm"],modelsTitle:"Такие смесители TOKITO собирают дома",
+   extra:CONFIG.TG_URL?`<a class="btn ghost" href="${CONFIG.TG_URL}" target="_blank" rel="noopener">Инструкция по установке</a>`:""}),1400)}},
+ stop(){}
+};
+})();
+
+
+/* ===== «Найди пару» (мемори) — реальные фото TOKITO ===== */
+(function(){
+const KEYS=["air1013cr","air1013gm","ais1016","ais1019","ais1021","ais1023gm"];
+let st;
+const short=k=>MODELS[k][0].replace("TOK-","");
+function render(){if(!$("#mem"))return;$("#mem").innerHTML=st.cards.map((c,i)=>`<button class="mc ${c.f||c.ok?"f":""} ${c.ok?"ok":""}" data-a="mcard" data-v="${i}" aria-label="карта"><span class="in"><span class="ba"></span><span class="fa"><img src="${MIMG(c.key)}" alt="">${short(c.key)}</span></span></button>`).join("");$("#stat").textContent=`ходы ${st.moves}`}
+GAMES.memory={title:"Найди пару",desc:"Модели TOKITO, две минуты",icon:IC.memory,color:"#B08A4A",bestLabel:v=>v+" ход.",
+ start(){st={cards:shuffle([...KEYS,...KEYS].map(k=>({key:k,f:false,ok:false}))),open:[],moves:0,lock:false,t0:Date.now()};
+  app.innerHTML=topbar("Найди пару","Мемори","ходы 0")+`<div class="stage"><div class="mem" id="mem"></div><div class="hint">Откройте две одинаковые модели. Присмотритесь к изливу и цвету.</div></div>`;render()},
+ click(a,v){if(a!=="mcard"||st.lock)return;const c=st.cards[+v];if(c.f||c.ok)return;c.f=true;st.open.push(c);render();
+  if(st.open.length===2){st.moves++;const [x,y]=st.open;st.open=[];
+   if(x.key===y.key){x.ok=y.ok=true;render();if(st.cards.every(c=>c.ok)){const s=Math.round((Date.now()-st.t0)/1000);
+    setTimeout(()=>finish("memory",{score:st.moves,lowerBetter:true,kicker:"Все пары найдены",title:`${st.moves} ходов за ${s} сек`,text:"Одна линейка может выглядеть по-разному: хром, вороненая сталь, гибкий или вытяжной излив. Все модели из игры ниже.",stats:[["Ходы",st.moves],["Время",s+" с"],["Пар",KEYS.length]],upsell:["aer","cart","acc"],models:KEYS,modelsTitle:"Модели из игры"}),700)}}
+   else{st.lock=true;setTimeout(()=>{x.f=y.f=false;st.lock=false;render()},800)}}},
+ stop(){}
+};
+})();
+
+renderHub();
+(function(){const m=location.hash.match(/game=(\w+)/);if(m&&GAMES[m[1]])open(m[1])})();
+
+</script>
+</body>
+</html>
