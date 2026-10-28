@@ -328,42 +328,54 @@ html[data-season=ny] .ucard.back:after{content:"福";color:#7A1F2B}
 <script>const PRICE_DATE="14.10.2026";
 const FIN={CR:{n:"хром",a:"#fbfcfd",b:"#8a95a0"},GM:{n:"вороненая сталь",a:"#666c76",b:"#1c1f23"},BL:{n:"чёрный",a:"#48484c",b:"#0d0d0e"},
   BG:{n:"брашированное золото",a:"#efd7a2",b:"#9a773e"},SS:{n:"нержавеющая сталь",a:"#eceef0",b:"#959ba1"},WH:{n:"белый",a:"#ffffff",b:"#d3d8dc"},
-  GL:{n:"стекло и хром",a:"#f1f8fa",b:"#a5bcc5"},NO:{n:"без рамы",a:"#eef4f6",b:"#a9b6be"}};
+  GL:{n:"стекло и хром",a:"#f1f8fa",b:"#a5bcc5"},NO:{n:"без рамы",a:"#eef4f6",b:"#a9b6be"},
+  SA:{n:"сатин",a:"#e6e1d8",b:"#9d958a"},BR:{n:"медь",a:"#e8b48f",b:"#8a4f2c"}};
 const P=(sku,name,fin,price,wb,oz,ym,spec,x={})=>({sku,name,fin,price,wb,oz,ym,spec,...x});
 const ITEMS=Object.fromEntries([
- P("TOK-TATSUMAKI-4-0SQ","Подвесной унитаз TATSUMAKI SQUARE, Торнадо 4.0","WH",19138,"428988488","2156772114","4486489943","безободковый, сиденье в комплекте",{shape:"square"}),
- P("TOK-TATSUMAKI-4-0TY","Подвесной унитаз TATSUMAKI YOKO, Торнадо 4.0","WH",16268,"428988489","2156975742","4487082505","безободковый, сиденье в комплекте",{shape:"round"}),
- P("TOK-TATSUMAKI-SUMO","Подвесной унитаз SUMO с микролифтом","WH",19894,"1160995650","4841553661",null,"безободковый, крышка опускается плавно",{shape:"oval",soft:true}),
+ P("TOK-AIR-1013CR","Смеситель для ванны с душевой стойкой AIR","CR",0,null,null,null,"душевая стойка и тропический душ"),
+ P("TOK-AIR-1013GM","Смеситель для ванны с душевой стойкой AIR","GM",0,null,null,null,"душевая стойка и тропический душ"),
+ P("TOK-AIR-1028","Смеситель для ванны с душевой стойкой AIR","CR",0,null,null,null,"душевая стойка и тропический душ"),
+ P("TOK-AIS-1016","Смеситель для кухни AISAI с гибким изливом","CR",0,null,null,null,"гибкий излив"),
+ P("TOK-AIS-1017","Смеситель для кухни AISAI с гибким изливом","BL",0,null,null,null,"гибкий излив"),
+ P("TOK-AIS-1018","Смеситель для кухни AISAI с фильтром питьевой воды","CR",0,null,null,null,"гибкий излив, фильтр питьевой воды",{filter:true}),
+ P("TOK-AIS-1019","Смеситель для кухни AISAI с фильтром питьевой воды","GM",0,null,null,null,"гибкий излив, фильтр питьевой воды",{filter:true}),
+ P("TOK-AIS-1020","Смеситель для кухни AISAI с фильтром питьевой воды","SA",0,null,null,null,"гибкий излив, фильтр питьевой воды",{filter:true}),
+ P("TOK-AIS-1021","Смеситель для кухни AISAI с вытяжным изливом и фильтром","CR",0,null,null,null,"вытяжной излив, фильтр питьевой воды",{filter:true}),
+ P("TOK-KARASAWA07-CH","Ершик для унитаза KARASAWA","CR",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA07-GM","Ершик для унитаза KARASAWA","GM",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA07-BR","Ершик для унитаза KARASAWA","BR",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA04-CH","Мыльница KARASAWA","CR",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA04-GM","Мыльница KARASAWA","GM",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA04-BR","Мыльница KARASAWA","BR",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA01-CH","Полотенцедержатель KARASAWA 66 см","CR",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA01-GM","Полотенцедержатель KARASAWA 66 см","GM",0,null,null,null,"аксессуар"),
+ P("TOK-KARASAWA01-BR","Полотенцедержатель KARASAWA 66 см","BR",0,null,null,null,"аксессуар"),
+ 
+ P("TOK-TATSUMAKI-4-0SQ","Унитаз подвесной безободковый TATSUMAKI SQUARE 4.0","WH",19138,"428988488","2156772114","4486489943","безободковый, сиденье в комплекте",{shape:"square"}),
+ P("TOK-TATSUMAKI-4-0TY","Унитаз подвесной безободковый TATSUMAKI YOKO 4.0","WH",16268,"428988489","2156975742","4487082505","безободковый, сиденье в комплекте",{shape:"round"}),
  P("TOK-TATSUMAKI-43","Инсталляция TATSUMAKI COMPACT 43 см","NO",19810,"232566146","1574961515","102496665630","рама 43 см, для подвесных унитазов",{w:43}),
  P("TOK-TATSUMAKI-50","Инсталляция TATSUMAKI MAX 50 см","NO",19810,"232566145","1574933357","103791508710","рама 50 см, для подвесных унитазов",{w:50}),
  P("TOK-TATSUMAKI-SQ-CH","Кнопка смыва TATSUMAKI SQUARE","CR",2574,"232749595","1575010333","102704696290","для инсталляций TATSUMAKI",{shape:"square"}),
  P("TOK-TATSUMAKI-SQ-GM","Кнопка смыва TATSUMAKI SQUARE","GM",4338,"232760965","1575112221","102704690608","для инсталляций TATSUMAKI",{shape:"square"}),
  P("TOK-TATSUMAKI-RD-BL","Кнопка смыва TATSUMAKI ROUND","BL",2142,"232760963","1575103908","102496659591","для инсталляций TATSUMAKI",{shape:"round"}),
  P("TOK-TATSUMAKI-SQ-GB","Кнопка смыва TATSUMAKI SQUARE","BG",4338,"232760966","1575113632","103059225507","для инсталляций TATSUMAKI",{shape:"square"}),
- P("BR020","Ершик настенный с керамической колбой","CR",1266,"11848930","727040996","100900962584","настенный, хром, керамика",{wall:true}),
- P("ST020","Ершик настенный со стеклянной колбой","GL",1637,"11848958","727042056","5686510459","настенный, стекло, хром",{wall:true}),
- P("1095","Ершик напольный металлический","CR",845,"11004561","727042129","5959032508","напольный, металл"),
- P("TOK-RAI-1031CR","Душевая стойка RAIN с термостатом","CR",31968,"1160854746","4681535496","5859430878","термостат, тропический душ 30×20, штанга 950–1350 мм",{thermo:true}),
- P("TOK-RAI-1031GM","Душевая стойка RAIN с термостатом","GM",34475,"1160854747","4681771401","5859352995","термостат, тропический душ 30×20, штанга 950–1350 мм",{thermo:true}),
- P("TOK-AIR-1030BG","Душевая система AIR 3 в 1","BG",26993,"881800489","4894765497",null,"тропический душ, лейка, смеситель"),
- P("TOK-RAI-1015BL","Душевая система RAIN без смесителя","BL",13715,"163546921","1008222206","102085221562","тропический душ и лейка, смеситель отдельно",{nomixer:true}),
+ P("TOK-RAI-1031CR","Термостатический смеситель с душевой стойкой RAIN","CR",31968,"1160854746","4681535496","5859430878","термостат, тропический душ 30×20, штанга 950–1350 мм",{thermo:true}),
+ P("TOK-RAI-1031GM","Термостатический смеситель с душевой стойкой RAIN","GM",34475,"1160854747","4681771401","5859352995","термостат, тропический душ 30×20, штанга 950–1350 мм",{thermo:true}),
+ P("TOK-AIR-1030BG","Смеситель для ванны с душевой стойкой AIR","BG",26993,"881800489","4894765497",null,"тропический душ, лейка, смеситель"),
  P("SET-NAB-60","Тумба подвесная 60 см + раковина NABEGATAKI","WH",28015,"548026054","2905121789","5686640477","два товара: TOK-NAB-TP60 и TOK-NAB-60",{w:60,parts:[["TOK-NAB-TP60",21293,"548026054","2905121789","5686640477"],["TOK-NAB-60",6722,"543906031","2904755972","5686589527"]]}),
  P("SET-NAB-80","Тумба напольная 80 см + раковина NABEGATAKI","WH",31584,"548026047","2905121494","4705720975","два товара: TOK-NAB-TN80 и TOK-NAB-80",{w:80,floor:true,parts:[["TOK-NAB-TN80",24474,"548026047","2905121494","4705720975"],["TOK-NAB-80",7110,"543906032","2904754479","5686551007"]]}),
- P("TOK-KAT-1011CR","Смеситель для раковины KATANA","CR",7997,"1025866758","3973357367","5686330533","латунь, аэратор Neoperl Slim Air",{flag:"В реестре в названии карточки «вороненая сталь». Проверить."}),
- P("TOK-KAT-1011GM","Смеситель для раковины KATANA","GM",8990,"1028505126","3973677177","5686488691","латунь, аэратор Neoperl Slim Air"),
+ P("TOK-KAT-1011CR","Смеситель для умывальника KATANA","CR",7997,"1025866758","3973357367","5686330533","латунь, аэратор Neoperl Slim Air",{flag:"В реестре в названии карточки «вороненая сталь». Проверить."}),
+ P("TOK-KAT-1011GM","Смеситель для умывальника KATANA","GM",8990,"1028505126","3973677177","5686488691","латунь, аэратор Neoperl Slim Air"),
  P("TOK-AOM-1011BG","Смеситель для умывальника AOMORI","BG",6579,"1160252808","4316003592",null,"нержавеющая сталь AISI 304"),
  P("TOK-AMA-1011BL","Смеситель для раковины AMA","BL",6549,"246651352","1620398287","103689326231","латунь"),
  P("TOK-INA-6070","Зеркало INAWASHIRO с подсветкой 60×70","NO",6621,"521589857","2806528042","5686607561","сенсор, антизапотевание",{w:60,h:70}),
  P("TOK-INA-8070","Зеркало INAWASHIRO с подсветкой 80×70","NO",7845,"521589858","2806527565","5686608546","сенсор, антизапотевание",{w:80,h:70}),
  P("TOK-INA-8060BG","Зеркало INAWASHIRO 80×60, рама золото","BG",8490,"1627521163","5837038783",null,"сенсор, антизапотевание",{w:80,h:60}),
- P("BR036","Мыльница настенная, керамика","WH",1326,"11853561","727904024","4813233744","настенная, керамика"),
- P("K036","Мыльница настенная, стекло","GL",1142,"11853585","727903438","5894695086","настенная, стекло"),
- P("N040","Мыльница настенная металлическая","CR",517,"11848954","727904011","100901244004","настенная, металл"),
- P("TOK-KAT-1013CR","Смеситель для кухни KATANA с гибким изливом","CR",14972,"1854005507",null,null,"магнитный держатель, подключение к фильтру",{filter:true}),
- P("TOK-KAT-1013GM","Смеситель для кухни KATANA с гибким изливом","GM",16917,"1854005508",null,null,"магнитный держатель, подключение к фильтру",{filter:true}),
- P("TOK-AIS-1023SS","Смеситель для кухни AISAI с вытяжным изливом","SS",7251,"448025680","2344527950","4776158287","вытяжной излив, подключение к фильтру",{filter:true}),
- P("TOK-AIS-1023GM","Смеситель для кухни AISAI с вытяжным изливом","GM",8246,"448025679","2345117439","4778138108","вытяжной излив, подключение к фильтру",{filter:true}),
- P("TOK-AMA-1013BL","Смеситель для кухни AMA с поворотным изливом","BL",6291,"246685116","1620418826","102706705813","латунь, поворотный излив"),
+ P("TOK-KAT-1013CR","Смеситель для мойки KATANA","CR",14972,"1854005507",null,null,"магнитный держатель, подключение к фильтру",{filter:true}),
+ P("TOK-KAT-1013GM","Смеситель для мойки KATANA","GM",16917,"1854005508",null,null,"магнитный держатель, подключение к фильтру",{filter:true}),
+ P("TOK-AIS-1023SS","Смеситель для мойки AISAI","SS",7251,"448025680","2344527950","4776158287","вытяжной излив, подключение к фильтру",{filter:true}),
+ P("TOK-AIS-1023GM","Смеситель для мойки AISAI","GM",8246,"448025679","2345117439","4778138108","вытяжной излив, подключение к фильтру",{filter:true}),
+ P("TOK-AMA-1013BL","Смеситель для кухни AMA","BL",6291,"246685116","1620418826","102706705813","латунь, поворотный излив"),
  P("TOK-OKA-6050-ST","Мойка OKA 60×50, нержавеющая сталь","SS",12210,"453287787","2436143167","4678155636","толщина стенок 3 мм, анти-шум"),
  P("TOK-OKA-6050-GF","Мойка OKA 60×50, вороненая сталь","GM",13230,"453287788","2436253131","4679027075","толщина стенок 3 мм, анти-шум")
 ].map(i=>[i.sku,i]));
@@ -398,8 +410,8 @@ const IC={
  quiz:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M8 40V18L24 8l16 10v22z"/><path d="M19 40V28h10v12"/></svg>',
  chat:'<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"><path d="M8 10h32v22H20l-8 7v-7H8z"/></svg>'
 };
-const FINC={CR:"var(--CR)",SS:"var(--SS)",GM:"var(--GM)",BG:"var(--BG)",WH:"radial-gradient(circle at 35% 30%,#fff,#e8e4de 60%,#c9c2b8)",BL:"radial-gradient(circle at 35% 30%,#6a6a70,#2a2a2e 60%,#0d0d0e)",GL:"var(--CR)",NO:"var(--CR)"};
-const FINN={CR:"хром",SS:"сатин",GM:"вороненая сталь",BG:"брашированное золото"};
+const FINC={CR:"var(--CR)",SS:"var(--SS)",SA:"var(--SS)",BR:"radial-gradient(circle at 35% 30%,#f3c8a6,#b8724a 60%,#7a4325)",GM:"var(--GM)",BG:"var(--BG)",WH:"radial-gradient(circle at 35% 30%,#fff,#e8e4de 60%,#c9c2b8)",BL:"radial-gradient(circle at 35% 30%,#6a6a70,#2a2a2e 60%,#0d0d0e)",GL:"var(--CR)",NO:"var(--CR)"};
+const FINN={CR:"хром",SS:"сатин",SA:"сатин",GM:"вороненая сталь",BG:"брашированное золото",BR:"медь"};
 
 /* ===== состояние ===== */
 const S={view:"hub",from:/from=qr/.test(location.search+location.hash)?"qr":"",best:{},plays:{}};
@@ -420,27 +432,28 @@ function botLink(label){return CONFIG.BOT_URL?`<a class="btn ghost" href="${CONF
 
 /* ===== модели TOKITO: реальные фото на белом фоне (папка Drive) ===== */
 const MODELS={
- air1013cr:["TOK-AIR-1013CR","Душевая система AIR","хром"],
- air1013gm:["TOK-AIR-1013GM","Душевая система AIR","вороненая сталь"],
- air1028:["TOK-AIR-1028","Душевая система AIR с термостатом",""],
- ais1016:["TOK-AIS-1016","Смеситель для кухни с гибким изливом",""],
- ais1017:["TOK-AIS-1017","Смеситель для кухни",""],
- ais1018:["TOK-AIS-1018","Смеситель для кухни с подключением фильтра",""],
- ais1019:["TOK-AIS-1019","Смеситель для кухни с фильтром питьевой воды","вороненая сталь"],
- ais1020:["TOK-AIS-1020","Смеситель для кухни с подключением фильтра",""],
- ais1021:["TOK-AIS-1021","Смеситель для кухни с подключением фильтра",""],
- ais1023gm:["TOK-AIS-1023GM","Смеситель для кухни AISAI с вытяжным изливом","вороненая сталь"]
+ air1013cr:["TOK-AIR-1013CR","Смеситель для ванны с душевой стойкой AIR","хром"],
+ air1013gm:["TOK-AIR-1013GM","Смеситель для ванны с душевой стойкой AIR","вороненая сталь"],
+ air1028:["TOK-AIR-1028","Смеситель для ванны с душевой стойкой AIR","хром"],
+ ais1016:["TOK-AIS-1016","Смеситель для кухни AISAI с гибким изливом","хром"],
+ ais1017:["TOK-AIS-1017","Смеситель для кухни AISAI с гибким изливом","чёрный"],
+ ais1018:["TOK-AIS-1018","Смеситель для кухни AISAI с фильтром питьевой воды","хром"],
+ ais1019:["TOK-AIS-1019","Смеситель для кухни AISAI с фильтром питьевой воды","вороненая сталь"],
+ ais1020:["TOK-AIS-1020","Смеситель для кухни AISAI с фильтром питьевой воды","сатин"],
+ ais1021:["TOK-AIS-1021","Смеситель для кухни AISAI с вытяжным изливом и фильтром","хром"],
+ ais1023gm:["TOK-AIS-1023GM","Смеситель для мойки AISAI","вороненая сталь"]
 };
 const MIMG=k=>`img/p_${k}.jpg`;
 function modelsBlock(keys,title){return `<div><div class="h2">${title||"Модели TOKITO"}</div></div><div class="models">${keys.map(k=>{const m=MODELS[k];return `<a class="model" href="${WB_SEARCH(m[0])}" target="_blank" rel="noopener"><img src="${MIMG(k)}" alt="${esc(m[1])}" loading="lazy"><b>${esc(m[1])}</b><span>${m[0]}${m[2]?" · "+m[2]:""}</span></a>`}).join("")}</div>`}
 
 /* ===== докупка после игр ===== */
 const UPSELL={
- cart:["Картридж","Если кран стал подтекать или туго ходит рычаг",IC.cart,"картридж"],
- aer:["Аэратор","Ровная струя и меньше брызг",IC.aerator,"аэратор"],
- gasket:["Набор прокладок","Для соединений, гаек и шлангов",IC.gasket,"прокладки"],
- hose:["Гибкая подводка и шланг","Когда старый потерял гибкость",IC.snake,"шланг"],
- acc:["Аксессуары","Ершик, мыльница, держатели в том же покрытии",IC.tile,"аксессуары"]
+ hose:["Шланг для душа WAHIKARU","Усиленный, с защитой от перекручивания",IC.snake,"шланг для душа"],
+ head:["Лейка для душа MIZU","Три режима, есть с фильтрацией воды",IC.shower,"лейка для душа"],
+ hyg:["Гигиеническая лейка MIZU","Хром или чёрная",IC.drop,"гигиеническая лейка"],
+ siphon:["Сифон и донный клапан","Хром, чёрный, вороненая сталь, золото",IC.gasket,"сифон для раковины"],
+ acc:["Аксессуары KARASAWA","Ершик, мыльница, держатели: хром, вороненая сталь, медь",IC.tile,"KARASAWA"],
+ button:["Кнопка смыва TATSUMAKI","Квадратная или круглая, четыре покрытия",IC.toilet,"кнопка смыва TATSUMAKI"]
 };
 /* finish — в extras.js */
 
@@ -593,7 +606,7 @@ function finish(id,o){
  const L=KL[id]||{};const line=pick((o.win===false?L.lose:L.win)||L.win||L.start||["Хорошая партия."]);
  const photo=o.photo||(KFR[id]?pick(KFR[id]):null);
  let chal="";if(CH&&CH.id===id&&o.score!=null){const lower=!!LOWER[id],d=o.score-CH.score,beat=lower?d<0:d>0;chal=`<div class="card chal ${beat?"win":""}"><b>${beat?`Вы обошли ${esc(CH.name)}`:d===0?`Ничья с ${esc(CH.name)}`:`${esc(CH.name)} пока впереди`}</b><span>${esc(CH.name)}: ${CH.score} · вы: ${o.score}</span></div>`}
- const ups=(o.upsell||["cart","aer","gasket"]).map(k=>UPSELL[k]);
+ const ups=(o.upsell||["hose","head","acc"]).map(k=>UPSELL[k]);
  S.last={id,o:{title:o.title,kicker:o.kicker,score:o.score,win:o.win,photo,stat:o.stats&&o.stats[0]}};
  app.innerHTML=topbar(GAMES[id].title,"Итог")+`<div class="scr fin">
   ${photo?`<div class="finphoto"><img src="img/${photo}" alt="Кэндзи"><div class="kline"><img src="img/${KFACE[o.win===false?"think":"smile"]}" alt=""><span></span></div></div>`:""}
@@ -677,7 +690,7 @@ const GAMES={};
 (function(){
 const DES={
  stone:{n:"Камень",ph:"Тихая сила",mood:"Строгое, тёмное",in:"Графитовые акценты и натуральный камень",fin:["GM","BL"],jp:"石"},
- sand:{n:"Песок",ph:"Тёплая тишина",mood:"Тёплое, мягкое",in:"Бежевые и тауповые тона, сатин",fin:["SS","WH","CR"],jp:"砂"},
+ sand:{n:"Песок",ph:"Тёплая тишина",mood:"Тёплое, мягкое",in:"Бежевые и тауповые тона, сатин",fin:["SA","BR","WH","CR"],jp:"砂"},
  air:{n:"Воздух",ph:"Лёгкое утро",mood:"Светлое, тихое",in:"Много света и пустого места, хром",fin:["CR","WH","GL"],jp:"空"},
  bronze:{n:"Бронза",ph:"Вечерний свет",mood:"Тёплое, с блеском",in:"Брашированное золото и латунь",fin:["BG"],jp:"銅"},
  cherry:{n:"Вишня",ph:"Мгновение весны",mood:"Светлое с одним акцентом",in:"Молочные тона и один вишнёвый предмет",fin:["CR","WH"],jp:"桜"},
@@ -702,7 +715,7 @@ const Q=[
  {id:"room",q:"Что оформляем?",img:true,o:[["bath","Ванную","q_b_air.jpg"],["toilet","Туалет","q_t_sand.jpg"],["kitchen","Кухню","q_k_air.jpg"],["shower","Душ","q_b_stone.jpg"]]},
  {id:"size",q:"Какого размера помещение?",o:[["s","Маленькое","до 4 м²",SVG.small],["m","Среднее","4–8 м²",SVG.mid],["l","Большое","больше 8 м²",SVG.big]]},
  {id:"mood",q:"Какое настроение ближе?",img:true,o:[["air","Светлое и тихое","q_b_air.jpg"],["sand","Тёплое и мягкое","q_b_sand.jpg"],["stone","Тёмное и строгое","q_b_stone.jpg"]]},
- {id:"fin",q:"Какое покрытие нравится?",o:[["CR","Хром","холодный блеск"],["SS","Сатин","мягкий матовый"],["GM","Вороненая сталь","глубокий тёмный"],["BG","Брашированное золото","тёплый блеск"]],orbs:true},
+ {id:"fin",q:"Какое покрытие нравится?",o:[["CR","Хром","холодный блеск"],["SA","Сатин","мягкий матовый"],["GM","Вороненая сталь","глубокий тёмный"],["BG","Брашированное золото","тёплый блеск"]],orbs:true},
  {id:"who",q:"Кто пользуется?",o:[["one","Один или пара","",SVG.one],["kids","Семья с детьми","",SVG.kids],["guests","Часто бывают гости","",SVG.guests]]},
  {id:"prio",q:"Что важнее?",o:[["care","Простой уход","",SVG.care],["beauty","Красота","",SVG.beauty],["tech","Технологии","",SVG.tech]]},
  {id:"plan",q:"Что делаем?",o:[["scratch","Ремонт с нуля","",SVG.scratch],["one","Обновляем одну деталь","",SVG.one_part]]}
@@ -710,16 +723,17 @@ const Q=[
 let st;
 function score(a){const s={stone:0,sand:0,air:0,bronze:0,cherry:typeof SEASON!=="undefined"&&SEASON==="sakura"?1:0,smart:0};
  s[a.mood]+=3;
- ({CR:{air:2,cherry:1},SS:{sand:2},GM:{stone:2},BG:{bronze:3}})[a.fin]&&Object.entries(({CR:{air:2,cherry:1},SS:{sand:2},GM:{stone:2},BG:{bronze:3}})[a.fin]).forEach(([k,v])=>s[k]+=v);
+ ({CR:{air:2,cherry:1},SA:{sand:2},GM:{stone:2},BG:{bronze:3}})[a.fin]&&Object.entries(({CR:{air:2,cherry:1},SA:{sand:2},GM:{stone:2},BG:{bronze:3}})[a.fin]).forEach(([k,v])=>s[k]+=v);
  if(a.size==="s")s.air+=1;
  if(a.who==="kids")s.air+=1; if(a.who==="guests"){s.cherry+=2;s.bronze+=1}
  if(a.prio==="tech")s.smart+=4; if(a.prio==="beauty"){s.cherry+=2;s.bronze+=1} if(a.prio==="care")s.air+=1;
  if(a.mood==="air"&&a.prio==="beauty")s.cherry+=1;
  return Object.entries(s).sort((x,y)=>y[1]-x[1])[0][0]}
-const SLOTS_BY_ROOM={bath:[["bmixer",["TOK-KAT-1011CR","TOK-KAT-1011GM","TOK-AOM-1011BG","TOK-AMA-1011BL"]],["shower",["TOK-RAI-1031CR","TOK-RAI-1031GM","TOK-AIR-1030BG","TOK-RAI-1015BL"]],["mirror",["TOK-INA-6070","TOK-INA-8060BG","TOK-INA-8070"]],["soap",["N040","K036","BR036"]]],
- toilet:[["toilet",["TOK-TATSUMAKI-SUMO","TOK-TATSUMAKI-4-0SQ","TOK-TATSUMAKI-4-0TY"]],["button",["TOK-TATSUMAKI-SQ-CH","TOK-TATSUMAKI-SQ-GM","TOK-TATSUMAKI-SQ-GB","TOK-TATSUMAKI-RD-BL"]],["brush",["BR020","ST020","1095"]],["inst",["TOK-TATSUMAKI-43","TOK-TATSUMAKI-50"]]],
- kitchen:[["kmixer",["TOK-KAT-1013CR","TOK-KAT-1013GM","TOK-AIS-1023SS","TOK-AIS-1023GM","TOK-AMA-1013BL"]],["ksink",["TOK-OKA-6050-ST","TOK-OKA-6050-GF"]]],
- shower:[["shower",["TOK-RAI-1031CR","TOK-RAI-1031GM","TOK-AIR-1030BG","TOK-RAI-1015BL"]],["bmixer",["TOK-KAT-1011CR","TOK-KAT-1011GM","TOK-AOM-1011BG","TOK-AMA-1011BL"]],["soap",["N040","K036","BR036"]]]};
+const SH=["TOK-RAI-1031CR","TOK-RAI-1031GM","TOK-AIR-1013CR","TOK-AIR-1013GM","TOK-AIR-1028","TOK-AIR-1030BG"],BM=["TOK-KAT-1011CR","TOK-KAT-1011GM","TOK-AOM-1011BG","TOK-AMA-1011BL"];
+const SLOTS_BY_ROOM={bath:[["bmixer",BM],["shower",SH],["mirror",["TOK-INA-6070","TOK-INA-8060BG","TOK-INA-8070"]],["acc",["TOK-KARASAWA01-CH","TOK-KARASAWA01-GM","TOK-KARASAWA01-BR"]]],
+ toilet:[["toilet",["TOK-TATSUMAKI-4-0SQ","TOK-TATSUMAKI-4-0TY"]],["button",["TOK-TATSUMAKI-SQ-CH","TOK-TATSUMAKI-SQ-GM","TOK-TATSUMAKI-SQ-GB","TOK-TATSUMAKI-RD-BL"]],["brush",["TOK-KARASAWA07-CH","TOK-KARASAWA07-GM","TOK-KARASAWA07-BR"]],["inst",["TOK-TATSUMAKI-43","TOK-TATSUMAKI-50"]]],
+ kitchen:[["kmixer",["TOK-KAT-1013CR","TOK-KAT-1013GM","TOK-AIS-1016","TOK-AIS-1017","TOK-AIS-1018","TOK-AIS-1019","TOK-AIS-1020","TOK-AIS-1021","TOK-AIS-1023SS","TOK-AIS-1023GM","TOK-AMA-1013BL"]],["ksink",["TOK-OKA-6050-ST","TOK-OKA-6050-GF"]]],
+ shower:[["shower",SH],["bmixer",BM],["soap",["TOK-KARASAWA04-CH","TOK-KARASAWA04-GM","TOK-KARASAWA04-BR"]]]};
 function picks(a,d){const fins=[a.fin,...DES[d].fin];let out=[];
  for(const [slot,list] of SLOTS_BY_ROOM[a.room]){const items=list.map(k=>ITEMS[k]).filter(Boolean);
   let best=items.sort((x,y)=>{const sx=fins.indexOf(x.fin),sy=fins.indexOf(y.fin);return (sx<0?9:sx)-(sy<0?9:sy)})[0];
@@ -738,11 +752,11 @@ function render(){
  const d=score(st.a),D=DES[d],img=`img/q_${ROOMIMG[st.a.room]}_${d}.jpg`,pr=picks(st.a,d);
  track("quiz_result",{design:d,room:st.a.room});
  const roomN={bath:"ванная",toilet:"туалет",kitchen:"кухня",shower:"душ"}[st.a.room];
- const dark=d==="stone"||d==="bronze";const qm=st.a.room==="kitchen"?(d==="smart"?["ais1019","ais1021"]:dark?["ais1023gm","ais1017"]:["ais1016","ais1018"]):st.a.room==="toilet"?null:(dark?["air1013gm","air1028"]:["air1013cr","air1028"]);
+ const dark=d==="stone"||d==="bronze";const qm=st.a.room==="kitchen"?(d==="smart"?["ais1019","ais1021"]:dark?["ais1023gm","ais1017"]:d==="sand"?["ais1020","ais1016"]:["ais1016","ais1018"]):st.a.room==="toilet"?null:(dark?["air1013gm","air1013cr"]:["air1013cr","air1028"]);
  app.innerHTML=topbar("Ваша комната по-японски","Результат")+`<div class="scr">
   <div class="result"><img src="${img}" alt="Дизайн ${D.n}"><div class="lb"><span class="hanko">${D.jp}</span><div><div class="k">Ваш дизайн · ${roomN}</div><div class="h2">«${D.n}»</div><div class="qph">${D.jp} · ${D.ph}</div><div class="note">${D.mood}. ${D.in}.</div></div></div></div>
   <div><div class="h2">TOKITO в этом образе</div><p class="note" style="margin-top:4px">${st.a.plan==="one"?"Начните с главной детали, остальное можно добавить позже.":"Комплект для ремонта с нуля."} Цена и наличие на карточке Wildberries.</p></div>
-  <div class="card" style="padding:4px 0">${pr.map(it=>`<div class="prod">${Object.keys(MODELS).find(k=>MODELS[k][0]===it.sku)?`<img class="pimg" src="${MIMG(Object.keys(MODELS).find(k=>MODELS[k][0]===it.sku))}" alt="">`:`<span class="orb" style="background:${FINC[it.fin]}"></span>`}<div><div class="nm">${esc(it.name)}</div><div class="sm">${FIN[it.fin]?FIN[it.fin].n:""} · ${it.sku}</div></div>${it.wb?`<a href="${WB_ITEM(it.wb)}" target="_blank" rel="noopener" data-a="wb">WB</a>`:""}</div>`).join("")}</div>
+  <div class="card" style="padding:4px 0">${pr.map(it=>`<div class="prod">${Object.keys(MODELS).find(k=>MODELS[k][0]===it.sku)?`<img class="pimg" src="${MIMG(Object.keys(MODELS).find(k=>MODELS[k][0]===it.sku))}" alt="">`:`<span class="orb" style="background:${FINC[it.fin]}"></span>`}<div><div class="nm">${esc(it.name)}</div><div class="sm">${FIN[it.fin]?FIN[it.fin].n:""} · ${it.sku}</div></div><a href="${it.wb?WB_ITEM(it.wb):WB_SEARCH(it.sku)}" target="_blank" rel="noopener" data-a="wb">WB</a></div>`).join("")}</div>
   ${qm?modelsBlock(qm,"Ещё модели под этот образ"):""}
   <div class="row"><button class="btn acc" data-a="story" data-v="quiz">В сторис</button><button class="btn ghost" data-a="qshare">Поделиться</button></div>
   ${qm?`<div class="card myroom"><b>Моя ванная из игры</b><span class="note">Сохраните подборку или отправьте её консультанту TOKITO в чат-бот, он поможет с размерами и наличием.</span><div class="row"><button class="btn ghost sm" data-a="qsave">Сохранить</button><button class="btn sm" data-a="qbot">Отправить консультанту</button></div></div>`:""}
@@ -752,6 +766,7 @@ function render(){
  </div>`;
  st.d=d;quizDone(d,D,roomN,img,qm||[]);snd("chime");
 }
+window.__quiz={DES:typeof DES!=="undefined"?DES:null,picks};
 GAMES.quiz={title:"Ваша комната по-японски",desc:"Квиз для новых гостей",icon:IC.quiz,color:"#7A1F2B",
  start(){st={i:0,a:{}};track("quiz_start");render()},
  click(a,v){if(a==="ans"){st.a[Q[st.i].id]=v;st.i++;render();app.querySelector(".scr").scrollTo(0,0)}
@@ -807,7 +822,7 @@ function over(why){st.alive=false;cancelAnimationFrame(raf);
  const caught=GOOD.filter(g=>st.got[g[0]]>0).map(g=>`${g[1].toLowerCase()} ×${st.got[g[0]]}`);
  setTimeout(()=>finish("snake",{win:st.body.length>=8,score:st.score,photo:"k_fin_toilet.jpg",kicker:why,title:`Шланг вырос до ${st.body.length} звеньев`,
   text:caught.length?`Поймано: ${caught.join(", ")}.`+(missing.length?` Не встретились: ${missing.join(", ")}. Возможно, именно их не хватает дома.`:" Собраны все детали."):"Детали не успели попасться. Попробуйте ещё раз.",
-  stats:[["Очки",st.score],["Деталей",Object.values(st.got).reduce((a,b)=>a+b,0)],["Длина",st.body.length]],upsell:["cart","aer","gasket","hose"]}),500)}
+  stats:[["Очки",st.score],["Деталей",Object.values(st.got).reduce((a,b)=>a+b,0)],["Длина",st.body.length]],upsell:["hose","siphon","head","acc"]}),500)}
 GAMES.snake={title:"Гибкий шланг",desc:"Ловите детали, обходите ржавчину и накипь",icon:IC.snake,color:"#4F6F8F",
  start(){app.innerHTML=topbar("Гибкий шланг","Змейка",0)+`<div class="stage"><canvas class="gc" id="cv"></canvas><div class="hint">Свайп по полю, стрелки или кнопки</div>
   <div class="pad"><button class="u" data-a="dir" data-v="0,-1" aria-label="Вверх">↑</button><button class="l" data-a="dir" data-v="-1,0" aria-label="Влево">←</button><button class="d" data-a="dir" data-v="0,1" aria-label="Вниз">↓</button><button class="r" data-a="dir" data-v="1,0" aria-label="Вправо">→</button></div>
@@ -872,7 +887,7 @@ function draw(){const L=LV[st.lv];ctx.fillStyle=L.wall;ctx.fillRect(0,0,W,H);
   if(o.t==="drip"){ctx.fillStyle="#9AA3AB";ctx.fillRect(sx-12,0,24,10);if(o.fall!==null){ctx.fillStyle="#5FA3CC";ctx.beginPath();const y=Math.max(14,o.fall);ctx.moveTo(sx,y-10);ctx.quadraticCurveTo(sx+8,y+2,sx,y+6);ctx.quadraticCurveTo(sx-8,y+2,sx,y-10);ctx.fill()}}
  });
  if(st.phase==="toilet"||st.phase==="win"){const sx=st.tx-st.x;ctx.fillStyle="#fff";ctx.beginPath();ctx.roundRect(sx-50,G-210,110,210,14);ctx.fill();ctx.strokeStyle="#E3DCD2";ctx.lineWidth=1.5;ctx.stroke();if(prize&&prize.complete&&prize.naturalWidth){const w=prize.naturalWidth,h=prize.naturalHeight;ctx.drawImage(prize,w*.25,0,w*.5,h,sx-45,G-205,100,200)}
-  ctx.fillStyle="#2E2A26";ctx.font="700 12px Manrope";ctx.textAlign="center";ctx.fillText("Душевая система AIR",sx+5,G-220);ctx.textAlign="left"}
+  ctx.fillStyle="#2E2A26";ctx.font="700 12px Manrope";ctx.textAlign="center";ctx.fillText("Душевая стойка AIR",sx+5,G-220);ctx.textAlign="left"}
  drawKenji(90,st.y);
  ctx.fillStyle="#2E2A26";ctx.font="700 12px Manrope";ctx.fillText(LV[st.lv].n,12,20);
  for(let i=0;i<3;i++){ctx.fillStyle=i<st.lives?"#5FA3CC":"#D9D2C7";ctx.beginPath();const x=W-20-i*18,y=16;ctx.moveTo(x,y-7);ctx.quadraticCurveTo(x+7,y+3,x,y+6);ctx.quadraticCurveTo(x-7,y+3,x,y-7);ctx.fill()}
@@ -883,13 +898,13 @@ function draw(){const L=LV[st.lv];ctx.fillStyle=L.wall;ctx.fillRect(0,0,W,H);
 function loop(){raf=requestAnimationFrame(loop);update();draw();const s=$("#stat");if(s)s.textContent=st.score}
 function end(){cancelAnimationFrame(raf);const win=st.phase==="win";
  finish("runner",{win,score:st.score,photo:win?"k_fin_runner.jpg":null,kicker:win?"Все уровни пройдены":"Протечки победили",title:win?"Кэндзи дошёл до душевой системы AIR":`Пройдено: ${LV[st.lv].n.toLowerCase()}`,
-  text:win?"Кухня, ванная и санузел позади. В финале душевая система TOKITO AIR.":"Кэндзи споткнулся. Протечки коварны, но всё чинится.",
-  stats:[["Очки",st.score],["Картриджи",st.got.cart],["Аэраторы",st.got.aerator]],upsell:["cart","aer","gasket"],
-  models:win?["air1013cr","air1013gm"]:null,modelsTitle:"Финал уровня: душевая система AIR"})}
-GAMES.runner={title:"Путь Кэндзи",desc:"Кухня, ванная, санузел и душевая система в финале",icon:IC.run,color:"#7A1F2B",
+  text:win?"Кухня, ванная и санузел позади. В финале душевая стойка TOKITO AIR.":"Кэндзи споткнулся. Протечки коварны, но всё чинится.",
+  stats:[["Очки",st.score],["Картриджи",st.got.cart],["Аэраторы",st.got.aerator]],upsell:["head","hose","hyg"],
+  models:win?["air1013cr","air1013gm"]:null,modelsTitle:"Финал уровня: душевая стойка AIR"})}
+GAMES.runner={title:"Путь Кэндзи",desc:"Кухня, ванная, санузел и душевая стойка в финале",icon:IC.run,color:"#7A1F2B",
  start(){app.innerHTML=topbar("Путь Кэндзи","Платформер",0)+`<div class="stage"><canvas class="gc" id="cv"></canvas><div class="hint">Тап или пробел: прыжок. Два тапа: двойной прыжок. Ловите картриджи и аэраторы.</div>
   <button class="btn" data-a="jump" style="max-width:350px">Прыжок</button>
-  <div class="overlay" id="ov" style="position:absolute"><div class="h2">Путь Кэндзи</div><p class="sub">Кэндзи молчит и бежит. Перепрыгивайте лужи, капли и сломанные трубы. Три уровня и душевая система AIR в конце.</p><button class="btn" data-a="go" style="max-width:220px">Начать</button></div></div>`;
+  <div class="overlay" id="ov" style="position:absolute"><div class="h2">Путь Кэндзи</div><p class="sub">Кэндзи молчит и бежит. Перепрыгивайте лужи, капли и сломанные трубы. Три уровня и душевая стойка AIR в конце.</p><button class="btn" data-a="go" style="max-width:220px">Начать</button></div></div>`;
   face=new Image();face.src="img/real_kenji_face.jpg";prize=new Image();prize.src=MIMG("air1013cr");
   cv=$("#cv");W=Math.min(350,app.clientWidth-28);H=420;G=H-70;const dpr=window.devicePixelRatio||1;cv.width=W*dpr;cv.height=H*dpr;cv.style.width=W+"px";cv.style.height=H+"px";ctx=cv.getContext("2d");ctx.scale(dpr,dpr);
   reset();st.phase="wait";draw();
@@ -943,7 +958,7 @@ async function swap(a,b){if(busy)return;const ra=Math.floor(a/N),ca=a%N,rb=Math.
  st.moves--;await resolve();busy=false;if(st.lv<LEVELS.length)render()}
 function end(win){finish("match",{win,score:st.score,kicker:win?"Комната обновлена":"Ходы закончились",title:win?"Старая ванная стала новой":`Обновлено ${st.lv} из ${LEVELS.length} частей комнаты`,
  text:win?"Все четыре уровня пройдены. Завтра откроется новая комната и новая коллекция.":"Вернитесь завтра, комната дождётся.",
- stats:[["Очки",st.score],["Уровень",`${Math.min(st.lv+1,LEVELS.length)}/${LEVELS.length}`],["Ходы",st.moves]],upsell:["cart","aer","acc"],
+ stats:[["Очки",st.score],["Уровень",`${Math.min(st.lv+1,LEVELS.length)}/${LEVELS.length}`],["Ходы",st.moves]],upsell:["head","hose","acc"],
  extra:`<div class="room" style="aspect-ratio:16/10;max-width:none"><img src="img/real_b_before.jpg" alt="Было"><img class="after" src="img/real_b_zen.jpg" alt="Стало" style="clip-path:inset(0 ${100-Math.min(1,st.lv/LEVELS.length)*100}% 0 0)"></div>`})}
 GAMES.match={title:"Дом Кэндзи",desc:"Три в ряд, старая ванная становится новой",icon:IC.m3,color:"#4F7A5A",
  start(){busy=false;st={lv:0,g:initGrid(),got:{},moves:LEVELS[0].m,score:0,sel:null};
@@ -965,9 +980,9 @@ GAMES.match={title:"Дом Кэндзи",desc:"Три в ряд, старая в
 /* ===== «Протечка» (сапёр) ===== */
 (function(){
 const C=8,R=10,M=12;let st;
-const TIPS=[["соединения","Чаще всего течёт в местах соединения гибкой подводки. Подтяните гайку на четверть оборота и проверьте прокладку.","gasket"],
- ["гайки","Гайка затянута слишком сильно или слабо. Перетяжка давит прокладку, недотяжка пропускает воду.","gasket"],
- ["картридж","Если капает из-под рычага или из излива при закрытом кране, пора менять картридж.","cart"]];
+const TIPS=[["соединения","Чаще всего течёт в местах соединения гибкой подводки. Подтяните гайку на четверть оборота и проверьте прокладку.","hose"],
+ ["гайки","Гайка затянута слишком сильно или слабо. Перетяжка давит прокладку, недотяжка пропускает воду.","siphon"],
+ ["картридж","Если капает из-под рычага или из излива при закрытом кране, пора менять картридж.","head"]];
 function init(){st={cells:Array.from({length:C*R},()=>({m:false,o:false,f:false,n:0})),first:true,flags:0,mode:"open",t0:0,over:false,timer:null}}
 const nb=i=>{const x=i%C,y=Math.floor(i/C),o=[];for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const nx=x+dx,ny=y+dy;if(nx>=0&&nx<C&&ny>=0&&ny<R)o.push(ny*C+nx)}return o};
 function place(safe){const ban=new Set([safe,...nb(safe)]);let k=0;while(k<M){const i=rnd(C*R);if(ban.has(i)||st.cells[i].m)continue;st.cells[i].m=true;k++}
@@ -976,10 +991,10 @@ function openCell(i){const c=st.cells[i];if(c.o||c.f)return;c.o=true;if(c.m)retu
 function render(){$("#mg").innerHTML=st.cells.map((c,i)=>{let cls="mcell",tx="";if(c.o){cls+=" open";if(c.m){cls+=" leak";tx="💧"}else if(c.n){tx=c.n;cls+=" n"+c.n}}else if(c.f){cls+=" flag";tx="⊘"}return `<button class="${cls}" data-a="mc" data-v="${i}" aria-label="${c.o?(c.n||"пусто"):c.f?"заглушка":"плитка"}">${tx}</button>`}).join("");
  $("#stat").textContent=`${M-st.flags} протечек`}
 function win(){st.over=true;clearInterval(st.timer);const s=Math.round((Date.now()-st.t0)/1000);const tip=TIPS[rnd(3)];
- setTimeout(()=>finish("mines",{win:true,score:s,photo:"k_fin_mines.jpg",lowerBetter:true,kicker:"Все протечки найдены",title:`Стена сухая за ${s} сек`,text:`Откуда течёт чаще всего: ${tip[0]}. ${tip[1]}`,stats:[["Время",s+" с"],["Протечек",M],["Заглушек",st.flags]],upsell:[tip[2],"gasket","cart"],
+ setTimeout(()=>finish("mines",{win:true,score:s,photo:"k_fin_mines.jpg",lowerBetter:true,kicker:"Все протечки найдены",title:`Стена сухая за ${s} сек`,text:`Откуда течёт чаще всего: ${tip[0]}. ${tip[1]}`,stats:[["Время",s+" с"],["Протечек",M],["Заглушек",st.flags]],upsell:[tip[2],"acc","hyg"],
   extra:CONFIG.TG_URL?`<a class="btn ghost" href="${CONFIG.TG_URL}" target="_blank" rel="noopener">Инструкция в Telegram</a>`:""}),600)}
 function lose(i){st.over=true;clearInterval(st.timer);st.cells.forEach(c=>{if(c.m)c.o=true});render();const tip=TIPS[rnd(3)];
- setTimeout(()=>finish("mines",{win:false,kicker:"Под плиткой была протечка",title:"Вода нашлась раньше заглушки",text:`Подсказка сервиса: ${tip[1]}`,stats:[["Найдено",st.cells.filter(c=>c.f&&c.m).length],["Всего",M],["Открыто",st.cells.filter(c=>c.o&&!c.m).length]],upsell:[tip[2],"gasket","cart"],
+ setTimeout(()=>finish("mines",{win:false,kicker:"Под плиткой была протечка",title:"Вода нашлась раньше заглушки",text:`Подсказка сервиса: ${tip[1]}`,stats:[["Найдено",st.cells.filter(c=>c.f&&c.m).length],["Всего",M],["Открыто",st.cells.filter(c=>c.o&&!c.m).length]],upsell:[tip[2],"acc","hyg"],
   extra:CONFIG.TG_URL?`<a class="btn ghost" href="${CONFIG.TG_URL}" target="_blank" rel="noopener">Инструкция в Telegram</a>`:""}),1200)}
 function act(i,flag){if(st.over)return;const c=st.cells[i];
  if(flag||st.mode==="flag"){if(c.o)return;c.f=!c.f;st.flags+=c.f?1:-1;render();return}
@@ -1038,7 +1053,7 @@ function check(){if(st.fnd.every(f=>f.length===13))end(true)}
 function end(win){const done=st.fnd.reduce((a,f)=>a+f.length,0);const s=Math.round((Date.now()-st.t0)/1000);
  const mix=[["CR","TOK-KAT-1011CR"],["GM","TOK-KAT-1011GM"],["SS","TOK-AIS-1023SS"],["BG","TOK-AOM-1011BG"]];
  finish("solitaire",{win,score:done,kicker:win?"Пасьянс сошёлся":"Партия отложена",title:win?`Все четыре покрытия разложены за ${s} сек`:`Разложено ${done} из 52`,
-  text:"Какое покрытие понравилось больше? Посмотрите, как оно смотрится на смесителях TOKITO.",stats:[["В домах",done],["Ходы",st.moves],["Время",s+" с"]],upsell:["aer","cart","acc"],models:["air1013cr","air1013gm"],modelsTitle:"Одна модель в двух покрытиях",
+  text:"Какое покрытие понравилось больше? Посмотрите, как оно смотрится на смесителях TOKITO.",stats:[["В домах",done],["Ходы",st.moves],["Время",s+" с"]],upsell:["acc","siphon","head"],models:["air1013cr","air1013gm"],modelsTitle:"Одна модель в двух покрытиях",
   extra:`<div class="card" style="padding:4px 0">${mix.map(([f,sku])=>{const it=ITEMS[sku];return it?`<div class="prod"><span class="orb" style="background:${FINC[f]}"></span><div><div class="nm">${FINN[f]}</div><div class="sm">${esc(it.name)}</div></div>${it.wb?`<a href="${WB_ITEM(it.wb)}" target="_blank" rel="noopener">WB</a>`:""}</div>`:""}).join("")}</div>`})}
 GAMES.solitaire={title:"Плиточный пасьянс",desc:"Косынка, где масти это четыре покрытия",icon:IC.cards,color:"#B08A4A",bestLabel:v=>v+"/52",
  start(){deal();app.innerHTML=topbar("Плиточный пасьянс","Косынка","0/52")+`<div class="stage"><div class="sol" id="sol"></div>
@@ -1097,7 +1112,7 @@ function bot(){busy=true;setTimeout(()=>{if(mode!=="bots")return;const p=st.turn
  busy=false;play(p,i,col)},900)}
 function end(p){const win=p===0;finish("uno",{win,score:win?1:0,kicker:win?"Вы сбросили все карты":"Партия за соперником",title:win?"Победа за столом TOKITO":`Выиграл(а) ${st.names[p]}`,
  text:"С живыми соперниками интереснее: создайте онлайн-стол и пришлите друзьям код.",
- stats:[["Ваших карт",st.hands[0].length],["У Ани",st.hands[1].length],["У Тимура",st.hands[2].length]],upsell:["acc","aer","cart"],
+ stats:[["Ваших карт",st.hands[0].length],["У Ани",st.hands[1].length],["У Тимура",st.hands[2].length]],upsell:["acc","head","siphon"],
  extra:`<button class="btn acc" data-a="umode" data-v="online">Сыграть онлайн с друзьями</button>`});S.unoWins=(S.unoWins||0)+(win?1:0)}
 function startBots(){mode="bots";busy=false;init();app.innerHTML=topbar("Колода Tokito","Вы, Аня и Тимур","7 карт")+`<div class="stage"><div class="unotable"></div>${RULES}</div>`;render()}
 
@@ -1187,7 +1202,7 @@ function renderOnline(){if(mode!=="online"||!ON)return;const g=ON.g;
  if(mi<0){app.innerHTML=topbar("Колода Tokito","Онлайн",null)+`<div class="scr"><div class="h1">Партия уже идёт</div><p class="sub">За этим столом играют без вас. Дождитесь следующей партии или создайте свой стол.</p><button class="btn" data-a="umode" data-v="online">Свой стол</button></div>`;return}
  if(g.win>=0&&!ON.ended){ON.ended=true;const win=g.win===mi;setTimeout(()=>{if(mode!=="online")return;
   finish("uno",{win,score:win?1:0,kicker:win?"Вы сбросили все карты":"Партия окончена",title:win?"Победа за онлайн-столом":`Выиграл(а) ${esc(g.n[g.win])}`,text:"Позовите друзей ещё раз: создайте новый стол и пришлите код.",
-   stats:g.n.map((n,i)=>[esc(n),g.h[i].length+" карт"]).slice(0,3),upsell:["acc","aer","cart"],extra:`<button class="btn acc" data-a="umode" data-v="online">Новый онлайн-стол</button>`});leave()},900);}
+   stats:g.n.map((n,i)=>[esc(n),g.h[i].length+" карт"]).slice(0,3),upsell:["acc","head","siphon"],extra:`<button class="btn acc" data-a="umode" data-v="online">Новый онлайн-стол</button>`});leave()},900);}
  const me=g.turn===mi&&g.win<0;const hand=g.h[mi].map(dec);
  const others=g.p.map((_,i)=>i).filter(i=>i!==mi);
  app.innerHTML=topbar("Колода Tokito",`Онлайн · стол ${esc(ON.code)}`,`${hand.length} карт`)+`<div class="stage"><div class="unotable">
@@ -1257,7 +1272,7 @@ GAMES.puzzle={title:"Собери смеситель",desc:"Корпус, кар
   if(i!==need){st.err++;el.classList.remove("no");void el.offsetWidth;el.classList.add("no");$("#ex").innerHTML=`<b>Пока рано.</b> ${need===0?"Сначала нужна основа, на которой держатся остальные детали.":`Следующая деталь ставится на «${P[need-1][1].toLowerCase()}».`}`;return}
   st.done.push(i);$("#p_"+P[i][0]).classList.add("on");$("#ex").innerHTML=`<b>${P[i][1]}.</b> ${P[i][2]}`;render();
   if(st.done.length===5){const s=Math.round((Date.now()-st.t0)/1000);setTimeout(()=>finish("puzzle",{win:true,score:st.err,lowerBetter:true,kicker:"Смеситель собран",photo:"k_fin_puzzle.jpg",title:st.err?`Собрано, подсказок: ${st.err}`:"Собрано без единой ошибки",
-   text:"Теперь понятно, как он устроен. Установка обычно занимает около 40 минут, пошаговая инструкция есть в Telegram TOKITO.",stats:[["Ошибки",st.err],["Время",s+" с"],["Деталей",5]],upsell:["cart","aer","gasket","hose"],models:["ais1019","ais1021","ais1016","ais1023gm"],modelsTitle:"Такие смесители TOKITO собирают дома",
+   text:"Теперь понятно, как он устроен. Пошаговая инструкция по установке есть в Telegram TOKITO.",stats:[["Ошибки",st.err],["Время",s+" с"],["Деталей",5]],upsell:["hose","siphon","head","acc"],models:["ais1019","ais1021","ais1016","ais1023gm"],modelsTitle:"Такие смесители TOKITO собирают дома",
    extra:CONFIG.TG_URL?`<a class="btn ghost" href="${CONFIG.TG_URL}" target="_blank" rel="noopener">Инструкция по установке</a>`:""}),1400)}},
  stop(){}
 };
@@ -1276,7 +1291,7 @@ GAMES.memory={title:"Найди пару",desc:"Модели TOKITO, две ми
  click(a,v){if(a!=="mcard"||st.lock)return;const c=st.cards[+v];if(c.f||c.ok)return;c.f=true;st.open.push(c);render();
   if(st.open.length===2){st.moves++;const [x,y]=st.open;st.open=[];
    if(x.key===y.key){x.ok=y.ok=true;snd("coin");buzz(10);render();if(st.cards.every(c=>c.ok)){const s=Math.round((Date.now()-st.t0)/1000);
-    setTimeout(()=>finish("memory",{win:true,score:st.moves,lowerBetter:true,kicker:"Все пары найдены",title:`${st.moves} ходов за ${s} сек`,text:"Одна линейка может выглядеть по-разному: хром, вороненая сталь, гибкий или вытяжной излив. Все модели из игры ниже.",stats:[["Ходы",st.moves],["Время",s+" с"],["Пар",KEYS.length]],upsell:["aer","cart","acc"],models:KEYS,modelsTitle:"Модели из игры"}),700)}}
+    setTimeout(()=>finish("memory",{win:true,score:st.moves,lowerBetter:true,kicker:"Все пары найдены",title:`${st.moves} ходов за ${s} сек`,text:"Одна линейка может выглядеть по-разному: хром, вороненая сталь, гибкий или вытяжной излив. Все модели из игры ниже.",stats:[["Ходы",st.moves],["Время",s+" с"],["Пар",KEYS.length]],upsell:["acc","siphon","head"],models:KEYS,modelsTitle:"Модели из игры"}),700)}}
    else{st.lock=true;setTimeout(()=>{x.f=y.f=false;st.lock=false;render()},800)}}},
  stop(){}
 };
